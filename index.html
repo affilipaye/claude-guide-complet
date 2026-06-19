@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livret Claude — Le Guide Complet pour Maîtriser Claude en 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --clay:#D97757;--terracotta:#C4623A;--sand:#F5E6D3;--cream:#FFF8F0;--warmlight:#FEF7EE;
+  --ink:#1C1917;--soft:#57534E;--muted:#A8A29E;--surface:#FAFAF9;--white:#fff;
+  --teal:#0D9488;--amber:#D97706;--rose:#E11D48;--emerald:#059669;--blue:#2563EB;--violet:#7C3AED;
+  --border:#E7E5E4;--radius:12px;--rlg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--surface);line-height:1.75}
+
+/* SIDEBAR */
+.sidebar{position:fixed;top:0;left:0;width:280px;height:100vh;background:var(--ink);padding:22px 14px;overflow-y:auto;z-index:100;transition:transform .3s}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:4px}
+.sidebar .logo{font-family:'Fraunces',serif;font-size:18px;color:#fff;font-weight:700;display:flex;align-items:center;gap:8px}
+.sidebar .sub{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin:3px 0 16px 28px}
+.ns{font-size:9.5px;color:var(--clay);text-transform:uppercase;letter-spacing:1.5px;padding:14px 13px 4px;font-weight:700}
+.sidebar a{display:flex;align-items:center;gap:7px;padding:6px 12px;margin-bottom:1px;color:rgba(255,255,255,.45);text-decoration:none;font-size:12px;font-weight:500;border-radius:7px;transition:.15s}
+.sidebar a:hover,.sidebar a.active{background:rgba(217,119,87,.15);color:#fff}
+.sidebar .n{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--clay);min-width:16px}
+.sidebar .dv{height:1px;background:rgba(255,255,255,.05);margin:8px 0}
+.toggle{display:none;position:fixed;top:12px;left:12px;z-index:200;background:var(--clay);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:18px;cursor:pointer}
+
+/* MAIN */
+.main{margin-left:280px;min-height:100vh}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1C1917 0%,#292524 30%,#44403C 70%,#57534E 100%);padding:75px 48px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-10%;width:450px;height:450px;background:radial-gradient(circle,rgba(217,119,87,.2),transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-20%;left:5%;width:300px;height:300px;background:radial-gradient(circle,rgba(13,148,136,.1),transparent 70%);border-radius:50%}
+.hero-c{position:relative;z-index:1;max-width:700px}
+.badge{display:inline-block;background:rgba(217,119,87,.2);color:var(--sand);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;border:1px solid rgba(217,119,87,.3)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(28px,4.5vw,46px);color:#fff;font-weight:700;line-height:1.15;margin-bottom:12px}
+.hero h1 em{color:var(--clay);font-style:normal}
+.hero-c>p{font-size:15.5px;color:rgba(255,255,255,.55);max-width:560px;margin-bottom:22px}
+.hero-tags{display:flex;gap:14px;flex-wrap:wrap}
+.hero-tags span{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.4);font-size:11.5px}
+.hero-tags .ic{width:26px;height:26px;background:rgba(255,255,255,.06);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px}
+
+/* CONTENT */
+.content{max-width:840px;margin:0 auto;padding:48px 30px 100px}
+.ch{margin-bottom:50px;scroll-margin-top:20px}
+.ch-head{display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.ch-num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#fff;background:var(--clay);width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0}
+.ch-num.lvl{background:var(--ink)}
+.ch h2{font-family:'Fraunces',serif;font-size:23px;font-weight:700}
+
+/* LEVEL BANNER */
+.lvl-banner{padding:18px 24px;border-radius:var(--rlg);margin-bottom:32px;display:flex;align-items:center;gap:16px}
+.lvl-banner .lb-icon{font-size:32px}
+.lvl-banner .lb-txt h3{font-family:'Fraunces',serif;font-size:18px;font-weight:700;margin-bottom:2px}
+.lvl-banner .lb-txt p{font-size:13px;margin:0}
+.lvl0{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#78350F;border:1px solid #FCD34D}
+.lvl1{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);color:#1E3A8A;border:1px solid #93C5FD}
+.lvl2{background:linear-gradient(135deg,#EDE9FE,#DDD6FE);color:#4C1D95;border:1px solid #C4B5FD}
+.lvl3{background:linear-gradient(135deg,#1C1917,#292524);color:#fff;border:1px solid #44403C}
+
+.card{background:var(--white);border-radius:var(--rlg);padding:30px;box-shadow:0 2px 12px rgba(28,25,23,.05);border:1px solid var(--border)}
+.card p{margin-bottom:13px;color:var(--soft);font-size:14.5px}
+.card p:last-child{margin-bottom:0}
+.card strong{color:var(--ink);font-weight:600}
+.card h3{font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin:24px 0 10px;padding-top:12px;border-top:1px solid var(--border)}
+.card h3:first-child{margin-top:0;padding-top:0;border-top:none}
+.card h4{font-size:13.5px;font-weight:700;color:var(--clay);margin:16px 0 6px}
+
+/* ANALOGY */
+.analogy{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-radius:var(--radius);padding:18px 22px;margin:16px 0;border-left:4px solid var(--amber)}
+.analogy .al{font-weight:700;color:#92400E;font-size:12.5px;margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.analogy p{font-size:13.5px;color:#78350F;margin:0}
+
+/* PREREQ */
+.prereq{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);border-radius:var(--radius);padding:18px 22px;margin:16px 0;border-left:4px solid var(--blue)}
+.prereq .pl{font-weight:700;color:#1E40AF;font-size:12.5px;margin-bottom:5px}
+.prereq p,.prereq li{font-size:13.5px;color:#1E3A5F;margin:0}
+.prereq ul{list-style:none;padding:0;margin:5px 0 0}
+.prereq li{padding:3px 0 3px 20px;position:relative}
+.prereq li::before{content:'☑';position:absolute;left:0}
+
+/* WARNING */
+.warning-big{background:linear-gradient(135deg,#FEE2E2,#FECACA);border-radius:var(--radius);padding:18px 22px;margin:16px 0;border-left:4px solid var(--rose)}
+.warning-big .wl{font-weight:700;color:#991B1B;font-size:12.5px;margin-bottom:3px}
+.warning-big p{font-size:13.5px;color:#7F1D1D;margin:0}
+
+/* TIP */
+.tip{display:flex;gap:11px;padding:14px 18px;border-radius:var(--radius);margin:14px 0;border-left:4px solid}
+.tip.info{background:#EFF6FF;border-color:var(--blue)}
+.tip.ok{background:#ECFDF5;border-color:var(--emerald)}
+.tip.warn{background:#FFFBEB;border-color:var(--amber)}
+.tip.err{background:#FFF1F2;border-color:var(--rose)}
+.tip-i{font-size:16px;flex-shrink:0}
+.tip-c{font-size:13px;color:var(--soft)}
+.tip-c strong{color:var(--ink);display:block;margin-bottom:2px}
+
+/* TABLES */
+.tw{overflow-x:auto;margin:14px 0;border-radius:var(--radius);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:var(--ink)}
+thead th{padding:10px 13px;text-align:left;color:#fff;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.4px}
+tbody td{padding:9px 13px;border-bottom:1px solid var(--border);color:var(--soft)}
+tbody tr:nth-child(even){background:var(--cream)}
+
+/* STEPS */
+.steps{counter-reset:s;list-style:none;padding:0;margin:14px 0}
+.steps li{counter-increment:s;position:relative;padding:12px 12px 12px 46px;margin-bottom:6px;background:var(--white);border-radius:var(--radius);border:1px solid var(--border);font-size:13.5px;color:var(--soft)}
+.steps li::before{content:counter(s);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:22px;height:22px;background:var(--clay);color:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.steps li strong{color:var(--ink)}
+
+/* VOCAB */
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:11px;margin:14px 0}
+.vc{background:var(--white);border-radius:var(--radius);padding:14px;border:1px solid var(--border);transition:.15s}
+.vc:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(28,25,23,.06)}
+.vc .vt{font-weight:700;color:var(--clay);font-size:13px;margin-bottom:2px}
+.vc .vd{font-size:12px;color:var(--soft)}
+.vc .ve{font-size:11px;color:var(--muted);margin-top:3px;font-style:italic}
+
+/* FLOW */
+.flow{display:flex;align-items:center;gap:0;margin:18px 0;flex-wrap:wrap;justify-content:center}
+.flow-node{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:10px 16px;text-align:center;min-width:110px;transition:.15s}
+.flow-node:hover{border-color:var(--clay);box-shadow:0 4px 14px rgba(217,119,87,.1)}
+.flow-node .fl{font-size:20px;margin-bottom:3px}
+.flow-node .fn2{font-weight:700;font-size:12px;color:var(--ink)}
+.flow-node .fd{font-size:10px;color:var(--muted)}
+.flow-node.trigger{border-color:var(--emerald);background:#ECFDF5}
+.flow-node.action{border-color:var(--blue);background:#EFF6FF}
+.flow-node.ai{border-color:var(--clay);background:var(--cream)}
+.flow-arrow{font-size:20px;color:var(--muted);padding:0 5px;flex-shrink:0}
+
+/* CODE */
+.code{background:#1C1917;color:#E7E5E4;padding:14px 18px;border-radius:var(--radius);font-family:'JetBrains Mono',monospace;font-size:12px;margin:12px 0;overflow-x:auto;line-height:1.6}
+.code .cm{color:#78716C}.code .kw{color:var(--teal)}.code .str{color:var(--clay)}.code .fn{color:var(--violet)}
+
+/* MOCK */
+.mock{background:#1C1917;border-radius:var(--radius);overflow:hidden;margin:16px 0;box-shadow:0 6px 24px rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.05)}
+.mock-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:rgba(0,0,0,.3)}
+.dot{width:8px;height:8px;border-radius:50%}.dot.r{background:#ff5f57}.dot.y{background:#ffbd2e}.dot.g{background:#28c840}
+.mock-url{margin-left:10px;font-size:10px;color:rgba(255,255,255,.25);font-family:'JetBrains Mono',monospace}
+.mock-body{padding:16px;min-height:80px}
+
+/* EXERCISE */
+.exercise{background:var(--cream);border:2px solid var(--sand);border-radius:var(--rlg);padding:24px;margin:16px 0}
+.exercise h4{color:var(--terracotta);margin:0 0 6px;font-size:14px}
+.exercise p{font-size:13px;color:var(--soft);margin:0 0 8px}
+.exercise .correction{background:var(--white);border-radius:var(--radius);padding:16px;margin-top:10px;border:1px solid var(--border);display:none}
+.exercise .correction h5{color:var(--emerald);font-size:12px;margin:0 0 6px}
+.exercise .correction p{font-size:12.5px;margin:0 0 6px}
+.ex-toggle{background:var(--clay);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif}
+.ex-toggle:hover{background:var(--terracotta)}
+
+/* FOOTER */
+.footer{text-align:center;padding:34px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:34px}
+
+@media(max-width:800px){
+  .sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.toggle{display:block}
+  .main{margin-left:0}.hero{padding:65px 18px 42px}.content{padding:26px 14px 60px}.card{padding:20px}
+  .flow{flex-direction:column}.flow-arrow{transform:rotate(90deg)}
+}
+@media print{.sidebar,.toggle,.hero{display:none!important}.main{margin-left:0!important}.ch{break-inside:avoid}.card{box-shadow:none!important;border:1px solid #ddd}}
+</style>
+</head>
+<body>
+<button class="toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="logo">🧠 Livret Claude</div>
+  <div class="sub">Guide complet 2026</div>
+
+  <div class="ns">🟡 Niveau 0 — Découverte</div>
+  <a href="#n0-intro"><span class="n">00</span>Ce que vous allez apprendre</a>
+  <a href="#n0-quoi"><span class="n">01</span>C'est quoi Claude ?</a>
+  <a href="#n0-histoire"><span class="n">02</span>Anthropic & l'histoire</a>
+  <a href="#n0-modeles"><span class="n">03</span>Les modèles expliqués</a>
+  <a href="#n0-pourquoi"><span class="n">04</span>Pourquoi Claude explose</a>
+  <a href="#n0-ou"><span class="n">05</span>Où trouver Claude ?</a>
+  <a href="#n0-plans"><span class="n">06</span>Plans & tarifs</a>
+  <a href="#n0-interface"><span class="n">07</span>Découverte de l'interface</a>
+
+  <div class="ns">🔵 Niveau 1 — Assistant</div>
+  <a href="#n1-styles"><span class="n">08</span>Les Styles d'écriture</a>
+  <a href="#n1-artefacts"><span class="n">09</span>Les Artefacts</a>
+  <a href="#n1-projets"><span class="n">10</span>Les Projets</a>
+  <a href="#n1-prompt"><span class="n">11</span>Bien prompter Claude</a>
+  <a href="#n1-fichiers"><span class="n">12</span>Fichiers & analyse</a>
+  <a href="#n1-recherche"><span class="n">13</span>Recherche web</a>
+
+  <div class="ns">🟣 Niveau 2 — Dans vos outils</div>
+  <a href="#n2-chrome"><span class="n">14</span>Claude dans Chrome</a>
+  <a href="#n2-excel"><span class="n">15</span>Claude dans Excel</a>
+  <a href="#n2-ppt"><span class="n">16</span>Claude dans PowerPoint</a>
+  <a href="#n2-skills"><span class="n">17</span>Les Skills (compétences)</a>
+  <a href="#n2-mcp"><span class="n">18</span>Les MCP (connecteurs)</a>
+  <a href="#n2-memoire"><span class="n">19</span>Mémoire & personnalisation</a>
+
+  <div class="ns">⚫ Niveau 3 — Avancé</div>
+  <a href="#n3-cowork"><span class="n">20</span>Claude Cowork</a>
+  <a href="#n3-code-ui"><span class="n">21</span>Claude Code (interface)</a>
+  <a href="#n3-code-term"><span class="n">22</span>Claude Code (terminal)</a>
+  <a href="#n3-deploy"><span class="n">23</span>Déployer ses créations</a>
+
+  <div class="ns">🎓 Pour finir</div>
+  <a href="#exercices"><span class="n">24</span>Exercices corrigés</a>
+  <a href="#usecases"><span class="n">25</span>Bibliothèque cas d'usage</a>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-c">
+    <span class="badge">📖 Formation Studeria · Tous niveaux</span>
+    <h1>Le Guide Complet <em>Claude</em> — De Débutant à Avancé</h1>
+    <p>Maîtrisez Claude en 2026 : de la simple conversation au développement avec Claude Code, en passant par Cowork, les MCP, les Skills et les Artefacts.</p>
+    <div class="hero-tags">
+      <span><span class="ic">🟡</span>Niveau 0 — Découverte</span>
+      <span><span class="ic">🔵</span>Niveau 1 — Assistant</span>
+      <span><span class="ic">🟣</span>Niveau 2 — Dans vos outils</span>
+      <span><span class="ic">⚫</span>Niveau 3 — Avancé</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ===================== NIVEAU 0 ===================== -->
+<div class="lvl-banner lvl0">
+  <div class="lb-icon">🟡</div>
+  <div class="lb-txt"><h3>Niveau 0 — Découverte</h3><p>Qu'est-ce que Claude, qui est derrière, pourquoi tout le monde en parle, et comment y accéder.</p></div>
+</div>
+
+<!-- N0-INTRO -->
+<div class="ch" id="n0-intro">
+  <div class="ch-head"><span class="ch-num">00</span><h2>Ce que vous allez apprendre</h2></div>
+  <div class="card">
+    <p>Ce livret est structuré en <strong>cercles concentriques</strong> : on part du centre (les bases) et on élargit vers les fonctionnalités les plus avancées. Chaque niveau s'appuie sur le précédent, mais vous pouvez piocher ce dont vous avez besoin.</p>
+    <div class="flow">
+      <div class="flow-node" style="border-color:var(--amber);background:#FFFBEB"><div class="fl">🟡</div><div class="fn2">Découverte</div><div class="fd">Chapitres 0-7</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node action"><div class="fl">🔵</div><div class="fn2">Assistant</div><div class="fd">Chapitres 8-13</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node" style="border-color:var(--violet);background:#EDE9FE"><div class="fl">🟣</div><div class="fn2">Vos outils</div><div class="fd">Chapitres 14-19</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node" style="border-color:#44403C;background:#292524;color:#fff"><div class="fl">⚫</div><div class="fn2" style="color:#fff">Avancé</div><div class="fd" style="color:#A8A29E">Chapitres 20-23</div></div>
+    </div>
+    <div class="tip ok">
+      <span class="tip-i">💚</span>
+      <div class="tip-c"><strong>Pas de panique si le Niveau 3 vous dépasse !</strong>C'est normal — il est technique et pas fait pour tout le monde. Les Niveaux 0 à 2 couvrent déjà 90% de ce dont vous avez besoin au quotidien.</div>
+    </div>
+  </div>
+</div>
+
+<!-- N0-QUOI -->
+<div class="ch" id="n0-quoi">
+  <div class="ch-head"><span class="ch-num">01</span><h2>C'est quoi Claude ?</h2></div>
+  <div class="card">
+    <p><strong>Claude</strong> est un assistant IA créé par l'entreprise <strong>Anthropic</strong>. C'est un modèle de langage (comme ChatGPT de OpenAI ou Gemini de Google) mais avec une approche différente : une priorité donnée à la <strong>sécurité, l'éthique et la qualité de rédaction</strong>.</p>
+    <div class="analogy">
+      <div class="al">📝 Pourquoi le nom « Claude » ?</div>
+      <p>Il est nommé en référence à <strong>Claude Shannon</strong>, le père de la théorie de l'information — celui qui a inventé le concept du <strong>bit</strong> (l'unité fondamentale de l'informatique). Une référence à ce mathématicien brillant qui a rendu possible la transmission d'information d'un point A à un point B. Petit fun fact pour briller en dîner !</p>
+    </div>
+    <p>Claude n'est <strong>pas juste un chatbot</strong>. En 2026, il est capable de :</p>
+    <div class="vg">
+      <div class="vc"><div class="vt">💬 Converser</div><div class="vd">Répondre à vos questions, analyser des documents, résumer, traduire</div></div>
+      <div class="vc"><div class="vt">✍️ Rédiger</div><div class="vd">Écrire avec la meilleure qualité de plume du marché</div></div>
+      <div class="vc"><div class="vt">📦 Créer</div><div class="vd">Générer des documents, des mini-applications, des dashboards (artefacts)</div></div>
+      <div class="vc"><div class="vt">💻 Coder</div><div class="vd">Développer des sites web, des outils, du code complexe (Claude Code)</div></div>
+      <div class="vc"><div class="vt">🖥️ Agir</div><div class="vd">Contrôler votre ordinateur : ranger des fichiers, remplir des tableaux (Cowork)</div></div>
+      <div class="vc"><div class="vt">🔗 Se connecter</div><div class="vd">S'intégrer à vos outils : Chrome, Excel, PowerPoint, Slack, Drive (MCP)</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- N0-HISTOIRE -->
+<div class="ch" id="n0-histoire">
+  <div class="ch-head"><span class="ch-num">02</span><h2>Anthropic — L'entreprise derrière Claude</h2></div>
+  <div class="card">
+    <h3>Les fondateurs</h3>
+    <p><strong>Anthropic</strong> a été fondée en 2021 par <strong>Dario Amodei</strong> et sa sœur <strong>Daniela Amodei</strong>. Fait intéressant : Dario est passé par <strong>Google</strong> puis <strong>OpenAI</strong> avant de quitter le navire en 2021 pour fonder sa propre entreprise. Il est donc passé par les deux géants avant de créer le sien.</p>
+    <p>L'entreprise est basée dans la <strong>Silicon Valley</strong> et se distingue par son approche de la sécurité : elle a créé une <strong>Constitution IA</strong> — un ensemble de principes éthiques sur lesquels sont entraînés les modèles. C'est l'entreprise qui investit le plus sur la sécurité, l'éthique et la protection des données.</p>
+
+    <h3>Chronologie express</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Date</th><th>Événement</th></tr></thead>
+        <tbody>
+          <tr><td><strong>2021</strong></td><td>Fondation d'Anthropic par Dario et Daniela Amodei</td></tr>
+          <tr><td><strong>Mars 2023</strong></td><td>Claude 1 — premier modèle (accès limité)</td></tr>
+          <tr><td><strong>Juillet 2023</strong></td><td>Claude 2 — premier modèle ouvert au grand public</td></tr>
+          <tr><td><strong>2024</strong></td><td>Claude 3 — introduction de la famille <strong>Haiku / Sonnet / Opus</strong></td></tr>
+          <tr><td><strong>Fin 2025</strong></td><td>Claude 4 puis 4.5</td></tr>
+          <tr><td><strong>5 fév. 2026</strong></td><td>Claude <strong>Opus 4.6</strong> — le plus puissant</td></tr>
+          <tr><td><strong>17 fév. 2026</strong></td><td>Claude <strong>Sonnet 4.6</strong> — 2 modèles en 12 jours !</td></tr>
+          <tr><td><strong>Fév. 2026</strong></td><td>Claude dans <strong>Excel</strong> et <strong>PowerPoint</strong></td></tr>
+          <tr><td><strong>Rumeur</strong></td><td>Projet « <strong>Fennec</strong> » = Claude 5 potentiellement en 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>En quelques chiffres (février 2026)</h3>
+    <div class="vg">
+      <div class="vc"><div class="vt">💰 61 Mds $</div><div class="vd">Valorisation d'Anthropic — doublée en 5 mois</div></div>
+      <div class="vc"><div class="vt">📈 ×14</div><div class="vd">Revenus multipliés par 14 entre janv. 2025 et janv. 2026</div></div>
+      <div class="vc"><div class="vt">🏢 Abonnements ×4</div><div class="vd">Les abonnements business ont quadruplé depuis début 2026</div></div>
+      <div class="vc"><div class="vt">🧑‍💻 >50%</div><div class="vd">Plus de la moitié du revenu vient des entreprises (pas le cas chez OpenAI)</div></div>
+    </div>
+
+    <div class="tip info">
+      <span class="tip-i">📊</span>
+      <div class="tip-c"><strong>La SaaS Apocalypse</strong>Depuis la sortie de Claude Code, les actions des éditeurs de logiciels (Salesforce, HubSpot, Adobe, SAP…) ont chuté de plus de 20%. Il est devenu tellement facile de coder son propre CRM ou dashboard que les logiciels traditionnels sont menacés.</div>
+    </div>
+  </div>
+</div>
+
+<!-- N0-MODELES -->
+<div class="ch" id="n0-modeles">
+  <div class="ch-head"><span class="ch-num">03</span><h2>Les 3 modèles : Haiku, Sonnet, Opus</h2></div>
+  <div class="card">
+    <p>Claude est découpé en <strong>3 niveaux de modèles</strong>, comme des gammes de voiture :</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Modèle</th><th>Profil</th><th>Idéal pour</th><th>Coût API</th></tr></thead>
+        <tbody>
+          <tr><td><strong>⚡ Haiku</strong></td><td>Le plus rapide et léger</td><td>Questions simples, tâches cadrées, chatbot basique</td><td>💚 Très économique</td></tr>
+          <tr><td><strong>⚖️ Sonnet</strong></td><td>Le plus équilibré + plus grande fenêtre de contexte</td><td>Rédaction, analyse, usage quotidien, meilleur rapport qualité/prix</td><td>💛 Modéré</td></tr>
+          <tr><td><strong>🧠 Opus</strong></td><td>Le plus puissant</td><td>Réflexion poussée, code complexe, analyse avancée — c'est le modèle derrière Claude Code</td><td>🔴 Plus cher</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="analogy">
+      <div class="al">🚗 L'analogie de la voiture</div>
+      <p><strong>Haiku</strong> = une citadine économique (rapide en ville, peu de consommation). <strong>Sonnet</strong> = une berline familiale (polyvalente, bon rapport qualité/prix). <strong>Opus</strong> = une voiture de sport (puissance maximale, pour les besoins exigeants).</p>
+    </div>
+    <div class="tip warn">
+      <span class="tip-i">💡</span>
+      <div class="tip-c"><strong>Dans votre abonnement (Pro/Max), vous n'avez pas de différence de coût entre les modèles.</strong> La différence de prix ne concerne que l'utilisation via l'API (pour les développeurs). En tant qu'utilisateur, choisissez simplement le meilleur modèle disponible.</div>
+    </div>
+  </div>
+</div>
+
+<!-- N0-POURQUOI -->
+<div class="ch" id="n0-pourquoi">
+  <div class="ch-head"><span class="ch-num">04</span><h2>Pourquoi Claude explose en 2026</h2></div>
+  <div class="card">
+    <p>En février 2026, Claude est devenu <strong>incontournable</strong>. Voici pourquoi :</p>
+    <ol class="steps">
+      <li><strong>Opus 4.6 + Sonnet 4.6</strong> sortis en 12 jours — deux modèles de pointe d'un coup</li>
+      <li><strong>Claude dans Excel et PowerPoint</strong> — des extensions meilleures que Copilot natif</li>
+      <li><strong>Claude Code</strong> — développement de logiciels complets, en explosion chez les entreprises</li>
+      <li><strong>Claude Cowork</strong> — Claude peut agir directement sur votre ordinateur</li>
+      <li><strong>Extensions Chrome, Skills, MCP</strong> — Claude s'intègre partout</li>
+      <li><strong>La meilleure plume du marché</strong> — unanimement reconnu comme le meilleur rédacteur IA</li>
+    </ol>
+    <div class="tip info">
+      <span class="tip-i">👤</span>
+      <div class="tip-c"><strong>Témoignage formateur</strong>« Pendant 2,5 ans, c'était ChatGPT. Puis du Gemini. Aujourd'hui : 70% Claude, 20% Gemini, 5% ChatGPT. Il y a un vrai exode des profils payants vers Claude. » — Guillaume, Studeria</div>
+    </div>
+  </div>
+</div>
+
+<!-- N0-OU -->
+<div class="ch" id="n0-ou">
+  <div class="ch-head"><span class="ch-num">05</span><h2>Où trouver Claude ?</h2></div>
+  <div class="card">
+    <p>Claude est accessible sur de nombreuses plateformes :</p>
+    <div class="vg">
+      <div class="vc"><div class="vt">🌐 Web</div><div class="vd">claude.ai — l'interface principale dans votre navigateur</div></div>
+      <div class="vc"><div class="vt">💻 App Mac / Windows</div><div class="vd">Logiciel de bureau avec Chat + Cowork + Code</div></div>
+      <div class="vc"><div class="vt">📱 App Mobile</div><div class="vd">iOS et Android</div></div>
+      <div class="vc"><div class="vt">🧩 Extension Chrome</div><div class="vd">Claude intégré dans votre navigateur</div></div>
+      <div class="vc"><div class="vt">📊 Extension Excel</div><div class="vd">Claude directement dans vos tableurs</div></div>
+      <div class="vc"><div class="vt">📽️ Extension PowerPoint</div><div class="vd">Claude pour vos présentations (sorti fév. 2026)</div></div>
+      <div class="vc"><div class="vt">⌨️ VS Code / Terminal</div><div class="vd">Claude Code pour les développeurs</div></div>
+      <div class="vc"><div class="vt">🔌 API</div><div class="vd">Pour intégrer Claude dans vos propres outils</div></div>
+    </div>
+    <div class="warning-big">
+      <div class="wl">⚠️ Attention aux faux sites !</div>
+      <p>L'adresse officielle est <strong>claude.ai</strong>. Méfiez-vous des sites qui imitent Claude mais ne sont pas Anthropic.</p>
+    </div>
+  </div>
+</div>
+
+<!-- N0-PLANS -->
+<div class="ch" id="n0-plans">
+  <div class="ch-head"><span class="ch-num">06</span><h2>Plans et tarifs</h2></div>
+  <div class="card">
+    <h3>Pour les individus</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Plan</th><th>Prix</th><th>Idéal pour</th><th>Recommandation</th></tr></thead>
+        <tbody>
+          <tr><td><strong>🆓 Gratuit</strong></td><td>0 €</td><td>Tester Claude, usage occasionnel</td><td>Pour découvrir</td></tr>
+          <tr><td><strong>⚡ Pro</strong></td><td>~20 €/mois</td><td>Usage régulier, accès à tous les modèles</td><td>✅ Recommandé pour commencer</td></tr>
+          <tr><td><strong>🚀 Max</strong></td><td>~90 ou 180 €/mois</td><td>Usage intensif, développement, code</td><td>✅ Si vous codez régulièrement</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Pour les entreprises</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Plan</th><th>Détails</th></tr></thead>
+        <tbody>
+          <tr><td><strong>👥 Team</strong></td><td>Sièges Standard + Premium. Gestion des comptes, SSO, Microsoft 365. Idéal pour une équipe de 3-20 personnes.</td></tr>
+          <tr><td><strong>🏢 Enterprise</strong></td><td>Sur mesure. Plus grande fenêtre de contexte, journaux d'audit, sécurité renforcée. Négociation directe avec Anthropic.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip warn">
+      <span class="tip-i">⚠️</span>
+      <div class="tip-c"><strong>Faites attention aux tokens !</strong>Sur un compte partagé (Max à plusieurs), les tokens partent très vite. Mieux vaut prendre un plan Team avec des sièges Standard pour les utilisateurs légers et Premium pour les power users.</div>
+    </div>
+  </div>
+</div>
+
+<!-- N0-INTERFACE -->
+<div class="ch" id="n0-interface">
+  <div class="ch-head"><span class="ch-num">07</span><h2>Découverte de l'interface</h2></div>
+  <div class="card">
+    <p>L'interface se présente comme les autres chatbots, mais avec quelques spécificités :</p>
+    <div class="mock">
+      <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mock-url">claude.ai</span></div>
+      <div class="mock-body">
+        <svg width="100%" height="320" viewBox="0 0 750 320">
+          <rect width="750" height="320" fill="#1C1917"/>
+          <!-- Sidebar -->
+          <rect x="0" y="0" width="180" height="320" fill="#0F0F0F"/>
+          <text x="16" y="24" fill="#D97757" font-size="13" font-weight="700" font-family="DM Sans">🧠 Claude</text>
+          <text x="16" y="48" fill="rgba(255,255,255,.5)" font-size="10" font-family="DM Sans">📁 Historique</text>
+          <text x="16" y="68" fill="rgba(255,255,255,.3)" font-size="9" font-family="DM Sans">Formation Tunisie 🇹🇳</text>
+          <text x="16" y="84" fill="rgba(255,255,255,.3)" font-size="9" font-family="DM Sans">Rédaction post LinkedIn</text>
+          <text x="16" y="100" fill="rgba(255,255,255,.3)" font-size="9" font-family="DM Sans">Analyse rapport Q4</text>
+          <text x="16" y="130" fill="rgba(255,255,255,.5)" font-size="10" font-family="DM Sans">📂 Projets</text>
+          <text x="16" y="160" fill="rgba(255,255,255,.5)" font-size="10" font-family="DM Sans">📦 Artefacts</text>
+          <text x="16" y="290" fill="rgba(255,255,255,.3)" font-size="10" font-family="DM Sans">⚙️ Paramètres</text>
+
+          <!-- Top tabs (app only) -->
+          <rect x="180" y="0" width="570" height="36" fill="#292524"/>
+          <rect x="200" y="6" width="60" height="24" fill="rgba(217,119,87,.2)" rx="6"/>
+          <text x="230" y="22" text-anchor="middle" fill="#D97757" font-size="11" font-weight="600" font-family="DM Sans">Chat</text>
+          <rect x="270" y="6" width="72" height="24" fill="rgba(255,255,255,.05)" rx="6"/>
+          <text x="306" y="22" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="11" font-family="DM Sans">Cowork</text>
+          <rect x="352" y="6" width="60" height="24" fill="rgba(255,255,255,.05)" rx="6"/>
+          <text x="382" y="22" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="11" font-family="DM Sans">Code</text>
+          <!-- Annotation tabs -->
+          <line x1="420" y1="18" x2="470" y2="18" stroke="#D97757" stroke-width="1.5"/>
+          <rect x="475" y="5" width="210" height="26" fill="rgba(217,119,87,.08)" rx="6"/>
+          <text x="485" y="22" fill="#D97757" font-size="10" font-family="DM Sans">👈 3 modes (app de bureau uniquement)</text>
+
+          <!-- Chat area -->
+          <rect x="180" y="36" width="570" height="284" fill="#1C1917"/>
+          <!-- Model selector -->
+          <rect x="310" y="55" width="180" height="28" fill="rgba(255,255,255,.04)" rx="8" stroke="rgba(255,255,255,.08)"/>
+          <text x="330" y="73" fill="rgba(255,255,255,.5)" font-size="11" font-family="DM Sans">🧠 Opus 4.6</text>
+          <text x="455" y="73" fill="rgba(255,255,255,.2)" font-size="11" font-family="DM Sans">▾</text>
+          <line x1="498" y1="69" x2="530" y2="55" stroke="#10B981" stroke-width="1.5"/>
+          <rect x="535" y="42" width="180" height="26" fill="rgba(16,185,129,.08)" rx="6"/>
+          <text x="545" y="59" fill="#10B981" font-size="10" font-family="DM Sans">👈 Choix du modèle ici</text>
+
+          <!-- Prompt bar -->
+          <rect x="220" y="260" width="490" height="42" fill="rgba(255,255,255,.04)" rx="12" stroke="rgba(255,255,255,.1)"/>
+          <text x="240" y="285" fill="rgba(255,255,255,.25)" font-size="12" font-family="DM Sans">Demandez quelque chose à Claude…</text>
+          <text x="660" y="285" fill="#D97757" font-size="14">→</text>
+          <!-- Prompt icons -->
+          <text x="240" y="250" fill="rgba(255,255,255,.2)" font-size="9" font-family="DM Sans">📎 Fichiers   🎨 Styles   🔍 Recherche   🔗 Connecteurs</text>
+          <!-- Annotation bar -->
+          <line x1="400" y1="248" x2="400" y2="230" stroke="#D97757" stroke-width="1.5"/>
+          <rect x="310" y="215" width="220" height="18" fill="rgba(217,119,87,.08)" rx="4"/>
+          <text x="320" y="228" fill="#D97757" font-size="9" font-family="DM Sans">⬆️ Toutes les options sont ici aussi avec /</text>
+
+          <!-- Incognito -->
+          <text x="690" y="54" fill="rgba(255,255,255,.2)" font-size="13">🕶️</text>
+          <line x1="690" y1="60" x2="690" y2="75" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="3"/>
+          <text x="620" y="87" fill="rgba(255,255,255,.15)" font-size="8" font-family="DM Sans">Mode incognito</text>
+        </svg>
+      </div>
+    </div>
+
+    <h3>Les éléments clés de l'interface</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Zone</th><th>Ce que ça fait</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Barre de prompt</strong></td><td>Tapez votre demande. Utilisez <code>/</code> pour ouvrir le menu des options</td></tr>
+          <tr><td><strong>Choix du modèle</strong></td><td>Sélectionnez Haiku, Sonnet ou Opus + réflexion approfondie (recommandé !)</td></tr>
+          <tr><td><strong>📎 Fichiers</strong></td><td>Glissez des photos, PDF, docs ou cliquez pour importer</td></tr>
+          <tr><td><strong>🎨 Styles</strong></td><td>Choisissez un style de rédaction personnalisé</td></tr>
+          <tr><td><strong>🔗 Connecteurs (MCP)</strong></td><td>Connectez d'autres logiciels (Slack, Drive, Notion…)</td></tr>
+          <tr><td><strong>🔍 Recherche</strong></td><td>Recherche web intégrée (pas toujours nécessaire de la cocher)</td></tr>
+          <tr><td><strong>Chat / Cowork / Code</strong></td><td>3 modes (sur l'app de bureau uniquement, pas sur le web)</td></tr>
+          <tr><td><strong>🕶️ Mode incognito</strong></td><td>Conversation non sauvegardée dans l'historique</td></tr>
+          <tr><td><strong>Historique</strong></td><td>Toutes vos conversations. Pensez à bien les nommer !</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip warn">
+      <span class="tip-i">✏️</span>
+      <div class="tip-c"><strong>Astuce pour nommer vos conversations</strong>Le nom est basé sur votre premier message. Si vous dites « Bonjour », la conversation s'appellera « Bonjour ». Soyez précis dès la première phrase, ou renommez ensuite. Utilisez des <strong>emojis</strong> pour les retrouver visuellement (ex : 🇹🇳 pour une mission en Tunisie).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== NIVEAU 1 ===================== -->
+<div class="lvl-banner lvl1">
+  <div class="lb-icon">🔵</div>
+  <div class="lb-txt"><h3>Niveau 1 — L'Assistant Intelligent</h3><p>Styles, artefacts, projets, prompting, fichiers et recherche web — les outils du quotidien.</p></div>
+</div>
+
+<!-- N1-STYLES -->
+<div class="ch" id="n1-styles">
+  <div class="ch-head"><span class="ch-num">08</span><h2>Les Styles d'écriture</h2></div>
+  <div class="card">
+    <p>Claude est reconnu comme l'IA avec <strong>la plus belle plume</strong>. Et avec les Styles, vous pouvez aller encore plus loin : faire écrire Claude <strong>exactement comme vous</strong>.</p>
+    <h3>Comment ça marche ?</h3>
+    <ol class="steps">
+      <li>Cliquez sur <strong>🎨 Styles</strong> dans la barre de prompt</li>
+      <li>Vous voyez les styles par défaut : <strong>Formel</strong>, <strong>Concis</strong>, <strong>Explicatif</strong></li>
+      <li>Cliquez sur <strong>« + Créer un style »</strong></li>
+      <li>Donnez-lui un nom (ex : « Mon style LinkedIn », « Style rapport client »)</li>
+      <li>Décrivez le ton, les règles, ou <strong>collez un exemple de votre écriture</strong></li>
+      <li>Sauvegardez. Désormais, un simple clic et Claude écrit comme vous !</li>
+    </ol>
+    <div class="analogy">
+      <div class="al">🎭 L'analogie du costume</div>
+      <p>Un style, c'est comme un costume que Claude enfile. Vous pouvez avoir un costume « LinkedIn » (professionnel mais engageant), un costume « Email client » (formel et précis), un costume « Créatif » (libre et inspiré). Il suffit de cliquer pour changer.</p>
+    </div>
+    <h3>Exemples de styles utiles</h3>
+    <div class="vg">
+      <div class="vc"><div class="vt">📝 Post LinkedIn</div><div class="vd">Ton professionnel, hooks percutants, emojis modérés, CTA en fin</div></div>
+      <div class="vc"><div class="vt">📧 Email pro</div><div class="vd">Concis, formel, objet clair, pas de jargon</div></div>
+      <div class="vc"><div class="vt">📄 Rapport</div><div class="vd">Structuré, factuel, sous-titres, données chiffrées</div></div>
+      <div class="vc"><div class="vt">💬 Chat décontracté</div><div class="vd">Tutoiement, phrases courtes, ton amical</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- N1-ARTEFACTS -->
+<div class="ch" id="n1-artefacts">
+  <div class="ch-head"><span class="ch-num">09</span><h2>Les Artefacts — Créer des documents et mini-apps</h2></div>
+  <div class="card">
+    <p>Les <strong>artefacts</strong> sont l'une des fonctionnalités les plus puissantes de Claude. Au lieu de simplement écrire du texte dans le chat, Claude peut <strong>créer des fichiers interactifs</strong> dans un panneau dédié à droite.</p>
+    <h3>Ce que Claude peut créer en artefact</h3>
+    <div class="vg">
+      <div class="vc"><div class="vt">📄 Documents</div><div class="vd">Rapports, articles, guides, emails — avec mise en forme</div></div>
+      <div class="vc"><div class="vt">📊 Tableaux / Graphiques</div><div class="vd">Données visuelles interactives</div></div>
+      <div class="vc"><div class="vt">🖥️ Pages web</div><div class="vd">HTML complet avec CSS et JavaScript</div></div>
+      <div class="vc"><div class="vt">⚛️ Applications React</div><div class="vd">Mini-apps interactives (calculateurs, dashboards, jeux…)</div></div>
+      <div class="vc"><div class="vt">📐 Diagrammes SVG</div><div class="vd">Schémas, organigrammes, illustrations</div></div>
+      <div class="vc"><div class="vt">📈 Mermaid</div><div class="vd">Diagrammes de flux, timelines, mind maps</div></div>
+    </div>
+    <h3>Comment créer un artefact ?</h3>
+    <p>Demandez simplement ! Exemples de prompts :</p>
+    <div class="code">
+      <span class="str">"Crée-moi un calculateur de ROI en React"</span><br>
+      <span class="str">"Fais-moi une page HTML pour présenter mon entreprise"</span><br>
+      <span class="str">"Génère un dashboard de suivi de mes KPIs"</span><br>
+      <span class="str">"Crée un quiz interactif sur la sécurité informatique"</span>
+    </div>
+    <div class="tip ok">
+      <span class="tip-i">✨</span>
+      <div class="tip-c"><strong>L'artefact s'affiche en temps réel à droite du chat.</strong>Vous pouvez le modifier, le télécharger, ou demander à Claude de l'améliorer en continuant la conversation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- N1-PROJETS -->
+<div class="ch" id="n1-projets">
+  <div class="ch-head"><span class="ch-num">10</span><h2>Les Projets — Organiser et contextualiser</h2></div>
+  <div class="card">
+    <p>Les <strong>Projets</strong> vous permettent de regrouper des conversations autour d'un même thème et de donner du <strong>contexte permanent</strong> à Claude.</p>
+    <h3>Pourquoi utiliser les Projets ?</h3>
+    <ol class="steps">
+      <li><strong>Organisation</strong> — Rangez vos conversations par thème (client, projet, sujet…)</li>
+      <li><strong>Contexte permanent</strong> — Uploadez des documents que Claude aura toujours en tête dans ce projet</li>
+      <li><strong>Instructions personnalisées</strong> — Donnez des instructions spécifiques à ce projet</li>
+    </ol>
+    <h3>Créer un projet</h3>
+    <ol class="steps">
+      <li>Cliquez sur <strong>« Projets »</strong> dans le menu latéral</li>
+      <li>Cliquez sur <strong>« + Nouveau projet »</strong></li>
+      <li>Donnez un nom (ex : « Client ABC — Stratégie IA »)</li>
+      <li>Ajoutez des <strong>instructions personnalisées</strong> (ton, rôle de Claude, contexte entreprise…)</li>
+      <li>Uploadez des <strong>fichiers de référence</strong> (PDF, docs, données…)</li>
+      <li>Toutes les conversations dans ce projet auront ce contexte automatiquement</li>
+    </ol>
+    <div class="analogy">
+      <div class="al">📁 L'analogie du dossier client</div>
+      <p>Un projet, c'est comme un <strong>dossier physique</strong> dans lequel vous mettez tous les documents liés à un sujet. Quand vous ouvrez ce dossier (= démarrez une conversation dans ce projet), Claude a automatiquement lu tous les documents à l'intérieur.</p>
+    </div>
+  </div>
+</div>
+
+<!-- N1-PROMPT -->
+<div class="ch" id="n1-prompt">
+  <div class="ch-head"><span class="ch-num">11</span><h2>Bien prompter Claude</h2></div>
+  <div class="card">
+    <p>Le <strong>prompt</strong>, c'est la façon dont vous formulez votre demande. Un bon prompt = une bonne réponse.</p>
+    <h3>Les 5 règles d'or</h3>
+    <ol class="steps">
+      <li><strong>Soyez précis</strong> — « Rédige un email de relance pour un devis de 5 000 € envoyé il y a 7 jours » vaut mieux que « Écris un email »</li>
+      <li><strong>Donnez du contexte</strong> — Qui êtes-vous ? À qui vous adressez-vous ? Quel est l'objectif ?</li>
+      <li><strong>Précisez le format</strong> — « En 200 mots », « Sous forme de tableau », « Avec des bullet points »</li>
+      <li><strong>Donnez un rôle</strong> — « Tu es un expert en marketing B2B » change radicalement la qualité</li>
+      <li><strong>Itérez</strong> — Ne vous arrêtez pas à la première réponse. Demandez d'améliorer, de raccourcir, de changer le ton</li>
+    </ol>
+    <h3>La méthode CRAFT</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Lettre</th><th>Signification</th><th>Exemple</th></tr></thead>
+        <tbody>
+          <tr><td><strong>C</strong></td><td>Contexte</td><td>« Je suis formateur IA pour des PME »</td></tr>
+          <tr><td><strong>R</strong></td><td>Rôle</td><td>« Agis comme un expert en copywriting »</td></tr>
+          <tr><td><strong>A</strong></td><td>Action</td><td>« Rédige un post LinkedIn »</td></tr>
+          <tr><td><strong>F</strong></td><td>Format</td><td>« 200 mots, avec un hook et un CTA »</td></tr>
+          <tr><td><strong>T</strong></td><td>Ton</td><td>« Professionnel mais engageant »</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip ok">
+      <span class="tip-i">🧠</span>
+      <div class="tip-c"><strong>Activez la réflexion approfondie !</strong>Quand vous cochez « Extended thinking », Claude prend 30 secondes à 1 minute de plus, mais la qualité est significativement meilleure. Préférez attendre un peu plus pour un meilleur résultat.</div>
+    </div>
+  </div>
+</div>
+
+<!-- N1-FICHIERS -->
+<div class="ch" id="n1-fichiers">
+  <div class="ch-head"><span class="ch-num">12</span><h2>Fichiers & Analyse de documents</h2></div>
+  <div class="card">
+    <p>Claude peut analyser de nombreux types de fichiers. Glissez-déposez ou cliquez sur 📎 :</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Type</th><th>Ce que Claude peut faire</th></tr></thead>
+        <tbody>
+          <tr><td><strong>📄 PDF</strong></td><td>Résumer, extraire des données, répondre à des questions sur le contenu</td></tr>
+          <tr><td><strong>📊 Excel / CSV</strong></td><td>Analyser, créer des graphiques, trouver des tendances</td></tr>
+          <tr><td><strong>🖼️ Images</strong></td><td>Décrire, analyser, extraire du texte (OCR), comparer</td></tr>
+          <tr><td><strong>📝 Word / Texte</strong></td><td>Résumer, réécrire, corriger, reformuler</td></tr>
+          <tr><td><strong>💻 Code</strong></td><td>Analyser, débugger, expliquer, améliorer</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- N1-RECHERCHE -->
+<div class="ch" id="n1-recherche">
+  <div class="ch-head"><span class="ch-num">13</span><h2>Recherche web</h2></div>
+  <div class="card">
+    <p>Claude peut <strong>chercher des informations sur le web</strong> en temps réel. Pas toujours besoin de cocher l'option — Claude détecte souvent seul quand il a besoin d'aller chercher une info récente.</p>
+    <div class="tip info">
+      <span class="tip-i">🔍</span>
+      <div class="tip-c"><strong>Quand utiliser la recherche web ?</strong>Pour les actualités récentes, les données qui changent souvent (prix, cours de bourse, résultats sportifs…), ou vérifier une information dont Claude pourrait ne pas être sûr.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== NIVEAU 2 ===================== -->
+<div class="lvl-banner lvl2">
+  <div class="lb-icon">🟣</div>
+  <div class="lb-txt"><h3>Niveau 2 — Claude dans vos outils</h3><p>Extensions Chrome, Excel, PowerPoint, Skills, MCP et personnalisation avancée.</p></div>
+</div>
+
+<!-- N2-CHROME -->
+<div class="ch" id="n2-chrome">
+  <div class="ch-head"><span class="ch-num">14</span><h2>Claude dans Chrome</h2></div>
+  <div class="card">
+    <p>L'extension Chrome permet d'utiliser Claude <strong>directement sur n'importe quelle page web</strong> — sans quitter votre navigateur.</p>
+    <h3>Ce que vous pouvez faire</h3>
+    <ol class="steps">
+      <li><strong>Résumer une page web</strong> en un clic</li>
+      <li><strong>Poser des questions</strong> sur le contenu d'un article</li>
+      <li><strong>Rédiger des réponses</strong> directement dans Gmail, LinkedIn, etc.</li>
+      <li><strong>Sélectionner du texte</strong> → clic droit → « Ask Claude » pour analyser un passage</li>
+    </ol>
+    <h3>Installation</h3>
+    <ol class="steps">
+      <li>Allez sur le <strong>Chrome Web Store</strong></li>
+      <li>Cherchez <strong>« Claude by Anthropic »</strong></li>
+      <li>Cliquez <strong>« Ajouter à Chrome »</strong></li>
+      <li>Connectez-vous avec votre compte Claude</li>
+    </ol>
+  </div>
+</div>
+
+<!-- N2-EXCEL -->
+<div class="ch" id="n2-excel">
+  <div class="ch-head"><span class="ch-num">15</span><h2>Claude dans Excel</h2></div>
+  <div class="card">
+    <p>Sorti début février 2026, Claude dans Excel permet d'utiliser l'IA <strong>directement dans vos tableurs</strong> — et selon beaucoup d'utilisateurs, c'est déjà <strong>meilleur que Copilot</strong>.</p>
+    <h3>Ce que Claude peut faire dans Excel</h3>
+    <ol class="steps">
+      <li><strong>Analyser vos données</strong> — « Quelles sont les tendances de vente ce trimestre ? »</li>
+      <li><strong>Créer des formules</strong> — Décrivez ce que vous voulez, Claude écrit la formule</li>
+      <li><strong>Nettoyer des données</strong> — Supprimer les doublons, corriger les formats</li>
+      <li><strong>Créer des graphiques</strong> — « Fais-moi un graphique de l'évolution du CA »</li>
+      <li><strong>Expliquer des formules existantes</strong> — Sélectionnez une formule complexe, Claude l'explique</li>
+    </ol>
+  </div>
+</div>
+
+<!-- N2-PPT -->
+<div class="ch" id="n2-ppt">
+  <div class="ch-head"><span class="ch-num">16</span><h2>Claude dans PowerPoint</h2></div>
+  <div class="card">
+    <p>Sorti le 20 février 2026, Claude dans PowerPoint permet de <strong>créer et améliorer des présentations</strong> avec l'IA.</p>
+    <h3>Cas d'usage</h3>
+    <ol class="steps">
+      <li><strong>Générer un plan de présentation</strong> à partir d'un brief</li>
+      <li><strong>Créer des slides</strong> avec du contenu structuré</li>
+      <li><strong>Résumer un document en slides</strong> — Uploadez un PDF, obtenez une présentation</li>
+      <li><strong>Améliorer des slides existants</strong> — Clarifier les messages, simplifier le texte</li>
+    </ol>
+  </div>
+</div>
+
+<!-- N2-SKILLS -->
+<div class="ch" id="n2-skills">
+  <div class="ch-head"><span class="ch-num">17</span><h2>Les Skills (Compétences)</h2></div>
+  <div class="card">
+    <p>Les <strong>Skills</strong> sont des ensembles d'instructions pré-configurées qui donnent à Claude des <strong>compétences spécifiques</strong>. C'est un entre-deux entre un assistant et un agent.</p>
+    <div class="analogy">
+      <div class="al">🧰 L'analogie de la boîte à outils</div>
+      <p>Un skill, c'est comme donner à Claude un <strong>manuel de procédure</strong> pour un domaine précis. Au lieu de tout réexpliquer à chaque conversation, vous activez un skill et Claude sait exactement comment se comporter pour cette tâche.</p>
+    </div>
+    <h3>Exemples de Skills</h3>
+    <div class="vg">
+      <div class="vc"><div class="vt">📄 Création de docs Word</div><div class="vd">Sait produire des .docx professionnels avec mise en forme</div></div>
+      <div class="vc"><div class="vt">📊 Création de tableurs</div><div class="vd">Produit des .xlsx avec formules et graphiques</div></div>
+      <div class="vc"><div class="vt">📽️ Création de présentations</div><div class="vd">Génère des .pptx structurés et design</div></div>
+      <div class="vc"><div class="vt">📄 Manipulation de PDF</div><div class="vd">Extraire, combiner, annoter des PDF</div></div>
+    </div>
+    <p>Vous pouvez aussi <strong>créer vos propres skills</strong> pour des tâches spécifiques à votre métier (audit IA, rédaction de cas client, séquence de prospection…).</p>
+  </div>
+</div>
+
+<!-- N2-MCP -->
+<div class="ch" id="n2-mcp">
+  <div class="ch-head"><span class="ch-num">18</span><h2>Les MCP — Connecter Claude à vos outils</h2></div>
+  <div class="card">
+    <p>Les <strong>MCP</strong> (Model Context Protocol) permettent de <strong>connecter Claude à vos logiciels externes</strong> sans passer par une API complexe. C'est une révolution pour l'intégration.</p>
+    <div class="analogy">
+      <div class="al">🔌 L'analogie de la multiprise</div>
+      <p>Un MCP, c'est comme une <strong>multiprise universelle</strong>. Vous branchez vos outils (Gmail, Slack, Notion, Google Drive, HubSpot…) et Claude peut y accéder directement depuis la conversation. Plus besoin de copier-coller des données entre les outils.</p>
+    </div>
+    <h3>Connecteurs disponibles (exemples)</h3>
+    <div class="vg">
+      <div class="vc"><div class="vt">📧 Gmail</div><div class="vd">Lire, envoyer, chercher des emails</div></div>
+      <div class="vc"><div class="vt">📅 Google Calendar</div><div class="vd">Voir et créer des événements</div></div>
+      <div class="vc"><div class="vt">💬 Slack</div><div class="vd">Envoyer des messages, lire des canaux</div></div>
+      <div class="vc"><div class="vt">📝 Notion</div><div class="vd">Créer des pages, chercher dans les bases</div></div>
+      <div class="vc"><div class="vt">📁 Google Drive</div><div class="vd">Chercher et accéder à des fichiers</div></div>
+      <div class="vc"><div class="vt">🟠 HubSpot</div><div class="vd">Gérer contacts, deals, activités</div></div>
+    </div>
+    <h3>Comment activer un MCP</h3>
+    <ol class="steps">
+      <li>Allez dans <strong>Paramètres → Connecteurs</strong></li>
+      <li>Choisissez un service (Gmail, Slack, etc.)</li>
+      <li>Autorisez la connexion (comme pour Make)</li>
+      <li>Désormais, Claude peut accéder à ce service directement depuis le chat</li>
+    </ol>
+  </div>
+</div>
+
+<!-- N2-MEMOIRE -->
+<div class="ch" id="n2-memoire">
+  <div class="ch-head"><span class="ch-num">19</span><h2>Mémoire & Personnalisation</h2></div>
+  <div class="card">
+    <p>Claude peut <strong>se souvenir d'informations</strong> d'une conversation à l'autre si vous activez la mémoire dans les paramètres.</p>
+    <ol class="steps">
+      <li>Allez dans <strong>Paramètres → Capacités</strong></li>
+      <li>Activez <strong>« Mémoire »</strong></li>
+      <li>Claude retient automatiquement les infos importantes (votre nom, votre entreprise, vos préférences…)</li>
+      <li>Vous pouvez aussi lui dire explicitement : <em>« Retiens que je travaille chez Studeria »</em></li>
+      <li>Consultez et gérez les souvenirs dans les paramètres</li>
+    </ol>
+    <div class="tip warn">
+      <span class="tip-i">🔒</span>
+      <div class="tip-c"><strong>Vie privée</strong>Vous gardez le contrôle total. Vous pouvez supprimer n'importe quel souvenir à tout moment, ou désactiver la mémoire complètement.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== NIVEAU 3 ===================== -->
+<div class="lvl-banner lvl3">
+  <div class="lb-icon">⚫</div>
+  <div class="lb-txt"><h3>Niveau 3 — Fonctionnalités Avancées</h3><p>Claude Cowork, Claude Code (interface et terminal), et déploiement. Plus technique, mais ultra-puissant.</p></div>
+</div>
+
+<!-- N3-COWORK -->
+<div class="ch" id="n3-cowork">
+  <div class="ch-head"><span class="ch-num">20</span><h2>Claude Cowork — Claude agit sur votre ordinateur</h2></div>
+  <div class="card">
+    <p><strong>Cowork</strong> est une fonctionnalité révolutionnaire : Claude peut <strong>voir votre écran et agir directement dessus</strong>. Il prend le contrôle de votre souris et de votre clavier pour effectuer des tâches.</p>
+    <div class="analogy">
+      <div class="al">🤝 L'analogie du collègue en visio</div>
+      <p>Imaginez que vous partagez votre écran avec un collègue ultra-compétent, et que ce collègue peut <strong>prendre la main sur votre ordinateur</strong> pour faire le travail à votre place. C'est exactement Cowork.</p>
+    </div>
+    <h3>Ce que Cowork peut faire</h3>
+    <ol class="steps">
+      <li><strong>Ranger des fichiers</strong> — Organiser des dossiers, renommer, déplacer</li>
+      <li><strong>Remplir des formulaires</strong> — Saisir des données dans des champs web</li>
+      <li><strong>Naviguer sur le web</strong> — Chercher des infos, remplir des sites</li>
+      <li><strong>Utiliser vos applications</strong> — Ouvrir Excel, copier des données, envoyer un email</li>
+      <li><strong>Automatiser des tâches répétitives</strong> — Tout ce que vous feriez manuellement</li>
+    </ol>
+    <h3>Comment l'utiliser</h3>
+    <ol class="steps">
+      <li>Ouvrez l'application de bureau Claude (pas la version web)</li>
+      <li>Cliquez sur l'onglet <strong>« Cowork »</strong> en haut</li>
+      <li>Décrivez la tâche : <em>« Range tous les fichiers PDF de mon bureau dans un dossier Factures-2026 »</em></li>
+      <li>Claude vous montre ce qu'il va faire et demande votre confirmation</li>
+      <li>Validez et observez-le agir sur votre écran !</li>
+    </ol>
+    <div class="warning-big">
+      <div class="wl">⚠️ Surveillez toujours ce que Cowork fait</div>
+      <p>Cowork est puissant mais pas infaillible. Gardez toujours un œil sur l'écran et n'hésitez pas à interrompre si quelque chose ne va pas. Commencez par des tâches simples pour vous familiariser.</p>
+    </div>
+  </div>
+</div>
+
+<!-- N3-CODE-UI -->
+<div class="ch" id="n3-code-ui">
+  <div class="ch-head"><span class="ch-num">21</span><h2>Claude Code — Version Interface (facile)</h2></div>
+  <div class="card">
+    <p>Claude Code permet de <strong>développer des applications et sites web complets</strong>. La version interface (dans l'app Claude) est la plus accessible — pas besoin d'être développeur.</p>
+    <h3>Ce que vous pouvez créer</h3>
+    <div class="vg">
+      <div class="vc"><div class="vt">🌐 Sites web</div><div class="vd">Landing pages, portfolios, sites vitrines</div></div>
+      <div class="vc"><div class="vt">📊 Dashboards</div><div class="vd">Tableaux de bord de suivi KPIs, clients</div></div>
+      <div class="vc"><div class="vt">🛠️ Outils internes</div><div class="vd">CRM simplifiés, gestionnaires de tâches</div></div>
+      <div class="vc"><div class="vt">🎮 Applications</div><div class="vd">Quiz, calculateurs, formulaires interactifs</div></div>
+    </div>
+    <h3>Comment ça marche</h3>
+    <ol class="steps">
+      <li>Dans l'app Claude, cliquez sur l'onglet <strong>« Code »</strong></li>
+      <li>Décrivez ce que vous voulez : <em>« Crée-moi un site vitrine pour mon cabinet de conseil, avec une section services, une page à propos, et un formulaire de contact »</em></li>
+      <li>Claude génère le code et vous montre un <strong>aperçu en direct</strong></li>
+      <li>Demandez des modifications : <em>« Change la couleur principale en bleu », « Ajoute une section témoignages »</em></li>
+      <li><strong>Téléchargez le résultat</strong> ou déployez-le directement</li>
+    </ol>
+  </div>
+</div>
+
+<!-- N3-CODE-TERM -->
+<div class="ch" id="n3-code-term">
+  <div class="ch-head"><span class="ch-num">22</span><h2>Claude Code — Terminal (avancé)</h2></div>
+  <div class="card">
+    <p>La version terminal de Claude Code offre <strong>beaucoup plus de fonctionnalités</strong> que la version interface. C'est un outil en ligne de commande qui tourne sur Opus et qui peut gérer des projets de développement complexes.</p>
+    <div class="prereq">
+      <div class="pl">⚠️ Prérequis pour cette section</div>
+      <ul>
+        <li>Connaissances de base en <strong>ligne de commande</strong> (terminal)</li>
+        <li><strong>Node.js</strong> installé sur votre ordinateur</li>
+        <li><strong>VS Code</strong> ou un éditeur de code (recommandé)</li>
+        <li>Un <strong>plan Max</strong> est recommandé (consomme beaucoup de tokens)</li>
+      </ul>
+    </div>
+    <h3>Installation</h3>
+    <div class="code">
+      <span class="cm">// Installer Claude Code via npm</span><br>
+      <span class="kw">npm install</span> <span class="str">-g @anthropic-ai/claude-code</span><br><br>
+      <span class="cm">// Lancer Claude Code dans votre projet</span><br>
+      <span class="kw">cd</span> mon-projet<br>
+      <span class="kw">claude</span>
+    </div>
+    <h3>Ce que Claude Code terminal peut faire</h3>
+    <ol class="steps">
+      <li><strong>Lire et comprendre</strong> un projet de code entier (des milliers de fichiers)</li>
+      <li><strong>Modifier plusieurs fichiers</strong> en une seule commande</li>
+      <li><strong>Exécuter des commandes shell</strong> (installer des packages, lancer des tests…)</li>
+      <li><strong>Debugger</strong> en analysant les erreurs et en corrigeant le code</li>
+      <li><strong>Créer des projets from scratch</strong> — sites web, API, applications</li>
+      <li><strong>Gérer Git</strong> — commits, branches, pull requests</li>
+    </ol>
+    <div class="tip info">
+      <span class="tip-i">💡</span>
+      <div class="tip-c"><strong>Plugin VS Code</strong>Claude Code s'intègre aussi comme plugin dans VS Code. C'est le mode le plus confortable pour développer : vous avez le code, Claude, et le terminal au même endroit.</div>
+    </div>
+  </div>
+</div>
+
+<!-- N3-DEPLOY -->
+<div class="ch" id="n3-deploy">
+  <div class="ch-head"><span class="ch-num">23</span><h2>Déployer ses créations</h2></div>
+  <div class="card">
+    <p>Vous avez créé un site ou une app avec Claude Code ? Voici comment le mettre en ligne :</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Service</th><th>Idéal pour</th><th>Prix</th></tr></thead>
+        <tbody>
+          <tr><td><strong>▲ Vercel</strong></td><td>Sites statiques, apps React/Next.js</td><td>Gratuit (hobby)</td></tr>
+          <tr><td><strong>🔷 Cloudflare Pages</strong></td><td>Sites statiques, performances maximales</td><td>Gratuit</td></tr>
+          <tr><td><strong>🐙 GitHub Pages</strong></td><td>Sites HTML simples</td><td>Gratuit</td></tr>
+          <tr><td><strong>🟢 Netlify</strong></td><td>Sites statiques, formulaires intégrés</td><td>Gratuit (starter)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>La méthode est toujours la même : <strong>GitHub</strong> (stockage du code) → <strong>Service de déploiement</strong> (mise en ligne automatique). Référez-vous au guide de déploiement Vercel de ce livret si besoin.</p>
+  </div>
+</div>
+
+<!-- ===================== EXERCICES ===================== -->
+<div class="lvl-banner" style="background:linear-gradient(135deg,var(--cream),var(--sand));color:var(--terracotta);border:1px solid var(--sand)">
+  <div class="lb-icon">🎓</div>
+  <div class="lb-txt"><h3>Exercices pratiques corrigés</h3><p>Mettez en pratique chaque niveau avec des exercices concrets et leurs corrections.</p></div>
+</div>
+
+<div class="ch" id="exercices">
+  <div class="ch-head"><span class="ch-num">24</span><h2>8 exercices — Du débutant à l'avancé</h2></div>
+  <div class="card">
+
+    <!-- EX 1 -->
+    <div class="exercise">
+      <h4>🟡 Exercice 1 — Créer un style d'écriture (Niveau 1, 10 min)</h4>
+      <p><strong>Consigne :</strong> Créez un style « Email professionnel » dans Claude. Il doit être concis, vouvoyer le destinataire, commencer par « Bonjour [Prénom] » et terminer par une formule de politesse. Testez-le en rédigeant un email de relance pour un devis.</p>
+      <button class="ex-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+      <div class="correction">
+        <h5>✅ Correction</h5>
+        <p><strong>Description du style à créer :</strong> « Rédige des emails professionnels. Vouvoie toujours. Commence par "Bonjour [Prénom]". Sois concis (5-8 lignes max). Termine par "Restant à votre disposition, bien cordialement, [Nom]". Ton : poli mais direct, pas de jargon. »</p>
+        <p><strong>Prompt test :</strong> « Rédige un email de relance pour un devis de 12 000 € envoyé il y a 10 jours à Marie Dupont, directrice marketing chez ABC Corp, pour une formation IA de 2 jours. »</p>
+        <p><strong>Vérification :</strong> L'email doit vouvoyer, faire 5-8 lignes, mentionner le montant et le contexte, et avoir un ton direct sans être insistant.</p>
+      </div>
+    </div>
+
+    <!-- EX 2 -->
+    <div class="exercise">
+      <h4>🟡 Exercice 2 — Créer un artefact interactif (Niveau 1, 15 min)</h4>
+      <p><strong>Consigne :</strong> Demandez à Claude de créer un calculateur de ROI en artefact React. Il doit avoir 3 champs (coût du projet, gain mensuel estimé, nombre de mois) et afficher le ROI en pourcentage et le temps de retour sur investissement.</p>
+      <button class="ex-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+      <div class="correction">
+        <h5>✅ Correction</h5>
+        <p><strong>Prompt :</strong> « Crée-moi un calculateur de ROI en React. 3 champs de saisie : coût initial du projet (€), gain mensuel estimé (€), durée d'observation (mois). Affiche : ROI en %, temps de retour sur investissement, et un graphique simple montrant les gains cumulés vs le coût. Design moderne et épuré. »</p>
+        <p><strong>Vérification :</strong> L'artefact doit s'afficher à droite du chat, les champs doivent être fonctionnels, les calculs doivent être corrects (ROI = (gains - coût) / coût × 100).</p>
+      </div>
+    </div>
+
+    <!-- EX 3 -->
+    <div class="exercise">
+      <h4>🟡 Exercice 3 — Organiser un Projet (Niveau 1, 10 min)</h4>
+      <p><strong>Consigne :</strong> Créez un projet « Stratégie Marketing Q2 2026 ». Ajoutez des instructions personnalisées (ex : « Tu es mon directeur marketing adjoint, tu connais le marché B2B français ») et uploadez un document de contexte (utilisez n'importe quel PDF). Démarrez une conversation dans ce projet et vérifiez que Claude utilise le contexte.</p>
+      <button class="ex-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+      <div class="correction">
+        <h5>✅ Correction</h5>
+        <p><strong>Vérification :</strong> Dans la conversation, demandez « Quel est ton rôle et quel contexte as-tu ? ». Claude doit mentionner qu'il est votre directeur marketing adjoint et faire référence au document uploadé. Si ce n'est pas le cas, vérifiez que les instructions sont bien enregistrées.</p>
+      </div>
+    </div>
+
+    <!-- EX 4 -->
+    <div class="exercise">
+      <h4>🔵 Exercice 4 — Utiliser la méthode CRAFT (Niveau 1, 15 min)</h4>
+      <p><strong>Consigne :</strong> En utilisant la méthode CRAFT, rédigez un prompt pour obtenir un post LinkedIn sur le thème « L'IA ne va pas remplacer votre emploi, mais quelqu'un qui utilise l'IA, si ». Comparez le résultat avec un prompt simple (« Écris un post LinkedIn sur l'IA au travail »).</p>
+      <button class="ex-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+      <div class="correction">
+        <h5>✅ Correction</h5>
+        <p><strong>Prompt CRAFT :</strong> « [C] Je suis formateur IA pour des PME françaises, j'ai 5 000 abonnés LinkedIn. [R] Agis comme un expert en copywriting LinkedIn. [A] Rédige un post sur le thème "L'IA ne va pas remplacer votre emploi, mais quelqu'un qui utilise l'IA, si". [F] 200 mots max, hook percutant en première ligne, 3 paragraphes, CTA qui invite au commentaire, 3-5 hashtags. [T] Professionnel mais accessible, tutoie le lecteur, utilise des exemples concrets. »</p>
+        <p><strong>Vérification :</strong> Le post CRAFT doit être significativement meilleur que le prompt simple : plus structuré, plus engageant, avec un hook et un CTA clairs.</p>
+      </div>
+    </div>
+
+    <!-- EX 5 -->
+    <div class="exercise">
+      <h4>🟣 Exercice 5 — Claude dans Chrome (Niveau 2, 10 min)</h4>
+      <p><strong>Consigne :</strong> Installez l'extension Claude pour Chrome. Allez sur un article d'actualité long. Utilisez Claude pour : 1) résumer l'article en 3 phrases, 2) identifier les 5 points clés, 3) rédiger un post LinkedIn basé sur cet article.</p>
+      <button class="ex-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+      <div class="correction">
+        <h5>✅ Correction</h5>
+        <p><strong>Vérification :</strong> Le résumé doit capturer l'essence de l'article en 3 phrases. Les 5 points clés doivent être pertinents et non redondants. Le post LinkedIn doit apporter de la valeur ajoutée et ne pas être un simple copier-coller du résumé.</p>
+      </div>
+    </div>
+
+    <!-- EX 6 -->
+    <div class="exercise">
+      <h4>🟣 Exercice 6 — Connecter un MCP (Niveau 2, 15 min)</h4>
+      <p><strong>Consigne :</strong> Connectez votre Google Calendar à Claude via les MCP. Demandez-lui : 1) « Quels sont mes rendez-vous de demain ? », 2) « Crée un événement "Réunion IA" jeudi de 14h à 15h », 3) « Résume ma semaine à venir ».</p>
+      <button class="ex-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+      <div class="correction">
+        <h5>✅ Correction</h5>
+        <p><strong>Vérification :</strong> Claude doit accéder à votre agenda réel, créer un vrai événement (vérifiez dans Google Calendar), et produire un résumé fidèle de vos rendez-vous. Si ça ne fonctionne pas, vérifiez que le connecteur est bien autorisé dans Paramètres → Connecteurs.</p>
+      </div>
+    </div>
+
+    <!-- EX 7 -->
+    <div class="exercise">
+      <h4>⚫ Exercice 7 — Claude Cowork (Niveau 3, 15 min)</h4>
+      <p><strong>Consigne :</strong> Utilisez Cowork pour : 1) Créer un dossier « Formation-2026 » sur votre bureau, 2) Y déplacer tous les fichiers PDF de votre dossier Téléchargements, 3) Renommer chaque PDF avec le préfixe « FORM_ ».</p>
+      <button class="ex-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+      <div class="correction">
+        <h5>✅ Correction</h5>
+        <p><strong>Prompt :</strong> « Crée un dossier Formation-2026 sur mon bureau. Ensuite, déplace tous les fichiers PDF de mon dossier Téléchargements dans ce nouveau dossier. Enfin, renomme chaque fichier en ajoutant le préfixe FORM_ au début du nom. »</p>
+        <p><strong>Vérification :</strong> Le dossier doit être créé, les PDF déplacés et renommés. Surveillez bien l'exécution et intervenez si Cowork fait une erreur.</p>
+      </div>
+    </div>
+
+    <!-- EX 8 -->
+    <div class="exercise">
+      <h4>⚫ Exercice 8 — Claude Code (Niveau 3, 30 min)</h4>
+      <p><strong>Consigne :</strong> Utilisez Claude Code (interface ou terminal) pour créer une page web « À propos » pour votre entreprise. Elle doit contenir : un header avec logo et navigation, une section « Notre histoire », une section « L'équipe » avec 3 profils, un formulaire de contact, et un footer. Déployez-la sur Vercel.</p>
+      <button class="ex-toggle" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Voir la correction</button>
+      <div class="correction">
+        <h5>✅ Correction</h5>
+        <p><strong>Prompt :</strong> « Crée-moi une page web "À propos" pour mon entreprise Studeria (formation IA). Inclus : un header avec logo texte + nav (Accueil, Services, À propos, Contact), une section "Notre histoire" avec un texte sur la mission, une section "L'équipe" avec 3 cartes (nom, rôle, photo placeholder), un formulaire de contact (nom, email, message), et un footer. Design moderne, responsive, couleurs chaudes. Un seul fichier HTML. »</p>
+        <p><strong>Vérification :</strong> La page doit être responsive (tester sur mobile), le formulaire doit avoir les bons champs, le design doit être professionnel. Pour le déploiement : renommez en index.html → GitHub → Vercel.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== CAS D'USAGE ===================== -->
+<div class="ch" id="usecases">
+  <div class="ch-head"><span class="ch-num">25</span><h2>Bibliothèque de cas d'usage</h2></div>
+  <div class="card">
+    <h3>Par métier / besoin</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Cas d'usage</th><th>Fonctionnalités Claude utilisées</th><th>Niveau</th></tr></thead>
+        <tbody>
+          <tr><td>Rédiger des posts LinkedIn au quotidien</td><td>Style personnalisé + Prompt CRAFT</td><td>🟡</td></tr>
+          <tr><td>Analyser un rapport de 50 pages</td><td>Upload fichier + Projet avec contexte</td><td>🟡</td></tr>
+          <tr><td>Créer une présentation client en 5 min</td><td>Artefact + Extension PowerPoint</td><td>🔵</td></tr>
+          <tr><td>Résumer tous les emails du jour</td><td>MCP Gmail + Recherche</td><td>🟣</td></tr>
+          <tr><td>Créer un CRM simplifié sur mesure</td><td>Claude Code (interface)</td><td>⚫</td></tr>
+          <tr><td>Automatiser le tri de fichiers chaque semaine</td><td>Cowork</td><td>⚫</td></tr>
+          <tr><td>Développer un site vitrine complet</td><td>Claude Code (terminal) + Vercel</td><td>⚫</td></tr>
+          <tr><td>Audit IA pour un client PME</td><td>Projet + Skills personnalisés + Artefacts</td><td>🟣</td></tr>
+          <tr><td>Préparer un cours ou une formation</td><td>Styles + Artefacts + Upload docs</td><td>🔵</td></tr>
+          <tr><td>Analyser un tableur de données clients</td><td>Extension Excel + Artefact graphique</td><td>🟣</td></tr>
+          <tr><td>Répondre aux candidatures RH automatiquement</td><td>MCP Gmail + Style « RH »</td><td>🟣</td></tr>
+          <tr><td>Veille concurrentielle hebdo</td><td>Recherche web + Projet dédié + Artefact tableau</td><td>🔵</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>🧠 Livret Claude — Guide Complet 2026</strong></p>
+  <p>Formation Studeria · Février 2026</p>
+  <p style="margin-top:8px;font-size:11px">Basé sur la formation vidéo Claude par Guillaume · Tous droits réservés</p>
+</div>
+
+</div><!-- /content -->
+</div><!-- /main -->
+
+<script>
+const links=document.querySelectorAll('.sidebar a');
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){links.forEach(l=>l.classList.remove('active'));const l=document.querySelector(`.sidebar a[href="#${x.target.id}"]`);if(l)l.classList.add('active')}})},{threshold:.15});
+document.querySelectorAll('.ch').forEach(c=>obs.observe(c));
+links.forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=800)document.querySelector('.sidebar').classList.remove('open')}));
+</script>
+</body>
+</html>
