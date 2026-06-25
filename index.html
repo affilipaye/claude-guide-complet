@@ -1,3 +1,144 @@
+
+Claude a terminé la réponse.
+je souhaiterais dupliquer ce site à l'identique : [https://claude-lead-magnet.vercel.app](https://claude-lead-magnet.vercel.app/) , pour le mettre sur mon compte vercel, peux tu m'expliquer étape par étage comment faire ?
+
+il y a 37 minutes
+
+Web recherché
+Web recherché
+Voici comment procéder, selon que le code source est public ou non.
+
+Étape 1 — Trouver le code source
+Commencez par vérifier si le repo GitHub est public. Allez sur github.com/search et cherchez claude-lead-magnet. Si vous trouvez le repo :
+
+Cliquez sur Fork (en haut à droite du repo)
+Ça crée une copie sur votre compte GitHub → passez directement à l'Étape 3
+Étape 2 — Si pas de repo public : télécharger le site manuellement
+Ouvrez le site dans Chrome
+Clic droit → Afficher le code source (ou Ctrl+U)
+Copiez tout le HTML dans un fichier index.html local
+Inspectez les onglets Network (F12 → Network → rechargez) pour voir les fichiers CSS/JS additionnels et les télécharger
+Créez un dossier local avec tous ces fichiers, puis créez un nouveau repo GitHub :
+Allez sur github.com/new
+Initialisez le repo, uploadez vos fichiers
+Étape 3 — Déployer sur Vercel
+Connectez-vous sur vercel.com avec votre compte
+Cliquez Add New → Project
+Sélectionnez Import Git Repository → choisissez votre fork ou votre nouveau repo
+Vercel détecte automatiquement le type de projet
+Cliquez Deploy — c'est tout
+Votre site sera en ligne en ~30 secondes sur votre-projet.vercel.app.
+
+Conseil pratique : si le site contient un backend ou des variables d'environnement (clé API, etc.), regardez si un fichier .env.example est présent dans le repo — vous devrez reconfigurer ces valeurs dans les paramètres Vercel avant que le site fonctionne correctement.
+
+Voulez-vous que je cherche le repo GitHub pour vous, ou que je vous aide à une étape en particulier ?
+
+il y a 37 minutes
+ok c'est fait comment puis je y apporter des modifications ?
+
+il y a 15 minutes
+
+Processus de réflexion
+Processus de réflexion
+Deux options selon votre niveau :
+
+Option A — Directement sur GitHub (simple, sans installer quoi que ce soit)
+Allez sur votre repo GitHub
+Cliquez sur le fichier à modifier (ex: index.html)
+Cliquez l'icône ✏️ crayon en haut à droite
+Faites vos modifications
+Cliquez Commit changes
+Vercel détecte le changement et redéploie automatiquement en ~30 secondes.
+
+Option B — En local avec VS Code (recommandé pour des modifs importantes)
+Clonez le repo sur votre ordinateur :
+   git clone https://github.com/votre-pseudo/votre-repo.git
+Ouvrez le dossier dans VS Code
+Modifiez les fichiers
+Envoyez les changements sur GitHub :
+   git add .
+   git commit -m "ma modification"
+   git push
+Vercel redéploie automatiquement
+Option C — Demander à Claude de modifier le code pour vous
+Si vous n'êtes pas à l'aise avec le code, vous pouvez :
+
+Coller ici le contenu de votre fichier HTML
+Me décrire la modification souhaitée ("change le titre", "ajoute une section", "modifie la couleur")
+Je vous donne le code corrigé → vous le collez sur GitHub
+Quelle option vous convient le mieux, et quel type de modification voulez-vous faire ?
+
+il y a 15 minutes
+option c
+
+
+Processus de réflexion
+Processus de réflexion
+Parfait ! Collez ici le contenu de votre fichier HTML (ou le fichier directement) et dites-moi ce que vous voulez modifier — je vous prépare le code corrigé prêt à coller sur GitHub.
+
+index.html
+html
+
+
+Lire 2 fichiers
+Lire 2 fichiers
+J'ai bien le fichier — c'est un seul fichier HTML de 1061 lignes, très bien structuré.
+
+Dites-moi maintenant ce que vous voulez modifier :
+
+Changer le titre, le nom de la formation, ou le logo ?
+Modifier le texte d'un chapitre ?
+Changer les couleurs ou le style visuel ?
+Ajouter ou supprimer un chapitre ?
+Autre chose ?
+Décrivez-moi les changements souhaités et je vous prépare le fichier corrigé prêt à remettre sur GitHub.
+
+modifier le titre "Formation Studeria · Tous niveaux" par "Formation Claude"
+
+
+Code recherché
+Code recherché
+Une seule occurrence. Je copie d'abord le fichier dans les outputs puis j'applique la modification :
+
+
+Exécuté 3 commandes, 2 fichiers modifiés, lu un fichier
+Exécuté 3 commandes, 2 fichiers modifiés, lu un fichier
+Modification faite. Le badge affiche maintenant "📖 Formation Claude".
+
+J'ai aussi remarqué que le footer (tout en bas) contient encore "Formation Studeria · Février 2026" — voulez-vous le modifier également ?
+
+
+Outils chargés, lu un fichier
+Outils chargés, lu un fichier
+Voilà le fichier modifié — remplacez-le sur GitHub et Vercel redéploiera automatiquement. Voulez-vous d'autres modifications ?
+
+
+C:\Users\Christophe BENTZ\AppData\Roaming\Claude\local-agent-mode-sessions\78cff1df-09d2-4eac-8c67-85819a0f71a5\5250d57b-2c06-4034-9c56-b3eb80f24152\local_f402910c-4560-4411-a359-75134ae17329\outputs\index.html
+Code 
+peux tu modifier la bas de page contenant "🧠 Livret Claude — Guide Complet 2026
+Formation Studeria · Février 2026
+Basé sur la formation vidéo Claude par Guillaume · Tous droits réservés" par "Claude Guide Complet · Tous droits réservés"
+
+
+Exécuté 3 commandes, lu un fichier
+Exécuté 3 commandes, lu un fichier
+Fait ! Le footer affiche maintenant uniquement "Claude Guide Complet · Tous droits réservés". D'autres modifications ?
+
+
+C:\Users\Christophe BENTZ\AppData\Roaming\Claude\local-agent-mode-sessions\78cff1df-09d2-4eac-8c67-85819a0f71a5\5250d57b-2c06-4034-9c56-b3eb80f24152\local_f402910c-4560-4411-a359-75134ae17329\outputs\index.html
+Code 
+pas pour le moment
+
+Parfait ! Quand vous voudrez faire d'autres modifications, revenez avec le fichier et décrivez ce que vous souhaitez changer. Bonne continuation ! 🙂
+
+
+
+
+
+Claude est une IA et peut faire des erreurs. Veuillez vérifier les réponses. Donnez-nous votre avis
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,7 +156,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--surface);line-height:1.75}
-
+ 
 /* SIDEBAR */
 .sidebar{position:fixed;top:0;left:0;width:280px;height:100vh;background:var(--ink);padding:22px 14px;overflow-y:auto;z-index:100;transition:transform .3s}
 .sidebar::-webkit-scrollbar{width:4px}
@@ -28,10 +169,10 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--surface)
 .sidebar .n{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--clay);min-width:16px}
 .sidebar .dv{height:1px;background:rgba(255,255,255,.05);margin:8px 0}
 .toggle{display:none;position:fixed;top:12px;left:12px;z-index:200;background:var(--clay);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:18px;cursor:pointer}
-
+ 
 /* MAIN */
 .main{margin-left:280px;min-height:100vh}
-
+ 
 /* HERO */
 .hero{background:linear-gradient(135deg,#1C1917 0%,#292524 30%,#44403C 70%,#57534E 100%);padding:75px 48px 60px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-30%;right:-10%;width:450px;height:450px;background:radial-gradient(circle,rgba(217,119,87,.2),transparent 70%);border-radius:50%}
@@ -44,7 +185,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--surface)
 .hero-tags{display:flex;gap:14px;flex-wrap:wrap}
 .hero-tags span{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.4);font-size:11.5px}
 .hero-tags .ic{width:26px;height:26px;background:rgba(255,255,255,.06);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px}
-
+ 
 /* CONTENT */
 .content{max-width:840px;margin:0 auto;padding:48px 30px 100px}
 .ch{margin-bottom:50px;scroll-margin-top:20px}
@@ -52,7 +193,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--surface)
 .ch-num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:#fff;background:var(--clay);width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0}
 .ch-num.lvl{background:var(--ink)}
 .ch h2{font-family:'Fraunces',serif;font-size:23px;font-weight:700}
-
+ 
 /* LEVEL BANNER */
 .lvl-banner{padding:18px 24px;border-radius:var(--rlg);margin-bottom:32px;display:flex;align-items:center;gap:16px}
 .lvl-banner .lb-icon{font-size:32px}
@@ -62,7 +203,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--surface)
 .lvl1{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);color:#1E3A8A;border:1px solid #93C5FD}
 .lvl2{background:linear-gradient(135deg,#EDE9FE,#DDD6FE);color:#4C1D95;border:1px solid #C4B5FD}
 .lvl3{background:linear-gradient(135deg,#1C1917,#292524);color:#fff;border:1px solid #44403C}
-
+ 
 .card{background:var(--white);border-radius:var(--rlg);padding:30px;box-shadow:0 2px 12px rgba(28,25,23,.05);border:1px solid var(--border)}
 .card p{margin-bottom:13px;color:var(--soft);font-size:14.5px}
 .card p:last-child{margin-bottom:0}
@@ -70,12 +211,12 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--surface)
 .card h3{font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin:24px 0 10px;padding-top:12px;border-top:1px solid var(--border)}
 .card h3:first-child{margin-top:0;padding-top:0;border-top:none}
 .card h4{font-size:13.5px;font-weight:700;color:var(--clay);margin:16px 0 6px}
-
+ 
 /* ANALOGY */
 .analogy{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-radius:var(--radius);padding:18px 22px;margin:16px 0;border-left:4px solid var(--amber)}
 .analogy .al{font-weight:700;color:#92400E;font-size:12.5px;margin-bottom:3px;display:flex;align-items:center;gap:6px}
 .analogy p{font-size:13.5px;color:#78350F;margin:0}
-
+ 
 /* PREREQ */
 .prereq{background:linear-gradient(135deg,#DBEAFE,#BFDBFE);border-radius:var(--radius);padding:18px 22px;margin:16px 0;border-left:4px solid var(--blue)}
 .prereq .pl{font-weight:700;color:#1E40AF;font-size:12.5px;margin-bottom:5px}
@@ -83,12 +224,12 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--surface)
 .prereq ul{list-style:none;padding:0;margin:5px 0 0}
 .prereq li{padding:3px 0 3px 20px;position:relative}
 .prereq li::before{content:'☑';position:absolute;left:0}
-
+ 
 /* WARNING */
 .warning-big{background:linear-gradient(135deg,#FEE2E2,#FECACA);border-radius:var(--radius);padding:18px 22px;margin:16px 0;border-left:4px solid var(--rose)}
 .warning-big .wl{font-weight:700;color:#991B1B;font-size:12.5px;margin-bottom:3px}
 .warning-big p{font-size:13.5px;color:#7F1D1D;margin:0}
-
+ 
 /* TIP */
 .tip{display:flex;gap:11px;padding:14px 18px;border-radius:var(--radius);margin:14px 0;border-left:4px solid}
 .tip.info{background:#EFF6FF;border-color:var(--blue)}
@@ -98,7 +239,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--surface)
 .tip-i{font-size:16px;flex-shrink:0}
 .tip-c{font-size:13px;color:var(--soft)}
 .tip-c strong{color:var(--ink);display:block;margin-bottom:2px}
-
+ 
 /* TABLES */
 .tw{overflow-x:auto;margin:14px 0;border-radius:var(--radius);border:1px solid var(--border)}
 table{width:100%;border-collapse:collapse;font-size:13px}
@@ -106,13 +247,13 @@ thead{background:var(--ink)}
 thead th{padding:10px 13px;text-align:left;color:#fff;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.4px}
 tbody td{padding:9px 13px;border-bottom:1px solid var(--border);color:var(--soft)}
 tbody tr:nth-child(even){background:var(--cream)}
-
+ 
 /* STEPS */
 .steps{counter-reset:s;list-style:none;padding:0;margin:14px 0}
 .steps li{counter-increment:s;position:relative;padding:12px 12px 12px 46px;margin-bottom:6px;background:var(--white);border-radius:var(--radius);border:1px solid var(--border);font-size:13.5px;color:var(--soft)}
 .steps li::before{content:counter(s);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:22px;height:22px;background:var(--clay);color:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace}
 .steps li strong{color:var(--ink)}
-
+ 
 /* VOCAB */
 .vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:11px;margin:14px 0}
 .vc{background:var(--white);border-radius:var(--radius);padding:14px;border:1px solid var(--border);transition:.15s}
@@ -120,7 +261,7 @@ tbody tr:nth-child(even){background:var(--cream)}
 .vc .vt{font-weight:700;color:var(--clay);font-size:13px;margin-bottom:2px}
 .vc .vd{font-size:12px;color:var(--soft)}
 .vc .ve{font-size:11px;color:var(--muted);margin-top:3px;font-style:italic}
-
+ 
 /* FLOW */
 .flow{display:flex;align-items:center;gap:0;margin:18px 0;flex-wrap:wrap;justify-content:center}
 .flow-node{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:10px 16px;text-align:center;min-width:110px;transition:.15s}
@@ -132,18 +273,18 @@ tbody tr:nth-child(even){background:var(--cream)}
 .flow-node.action{border-color:var(--blue);background:#EFF6FF}
 .flow-node.ai{border-color:var(--clay);background:var(--cream)}
 .flow-arrow{font-size:20px;color:var(--muted);padding:0 5px;flex-shrink:0}
-
+ 
 /* CODE */
 .code{background:#1C1917;color:#E7E5E4;padding:14px 18px;border-radius:var(--radius);font-family:'JetBrains Mono',monospace;font-size:12px;margin:12px 0;overflow-x:auto;line-height:1.6}
 .code .cm{color:#78716C}.code .kw{color:var(--teal)}.code .str{color:var(--clay)}.code .fn{color:var(--violet)}
-
+ 
 /* MOCK */
 .mock{background:#1C1917;border-radius:var(--radius);overflow:hidden;margin:16px 0;box-shadow:0 6px 24px rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.05)}
 .mock-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:rgba(0,0,0,.3)}
 .dot{width:8px;height:8px;border-radius:50%}.dot.r{background:#ff5f57}.dot.y{background:#ffbd2e}.dot.g{background:#28c840}
 .mock-url{margin-left:10px;font-size:10px;color:rgba(255,255,255,.25);font-family:'JetBrains Mono',monospace}
 .mock-body{padding:16px;min-height:80px}
-
+ 
 /* EXERCISE */
 .exercise{background:var(--cream);border:2px solid var(--sand);border-radius:var(--rlg);padding:24px;margin:16px 0}
 .exercise h4{color:var(--terracotta);margin:0 0 6px;font-size:14px}
@@ -153,10 +294,10 @@ tbody tr:nth-child(even){background:var(--cream)}
 .exercise .correction p{font-size:12.5px;margin:0 0 6px}
 .ex-toggle{background:var(--clay);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif}
 .ex-toggle:hover{background:var(--terracotta)}
-
+ 
 /* FOOTER */
 .footer{text-align:center;padding:34px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:34px}
-
+ 
 @media(max-width:800px){
   .sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.toggle{display:block}
   .main{margin-left:0}.hero{padding:65px 18px 42px}.content{padding:26px 14px 60px}.card{padding:20px}
@@ -167,12 +308,12 @@ tbody tr:nth-child(even){background:var(--cream)}
 </head>
 <body>
 <button class="toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
-
+ 
 <!-- SIDEBAR -->
 <nav class="sidebar">
   <div class="logo">🧠 Livret Claude</div>
   <div class="sub">Guide complet 2026</div>
-
+ 
   <div class="ns">🟡 Niveau 0 — Découverte</div>
   <a href="#n0-intro"><span class="n">00</span>Ce que vous allez apprendre</a>
   <a href="#n0-quoi"><span class="n">01</span>C'est quoi Claude ?</a>
@@ -182,7 +323,7 @@ tbody tr:nth-child(even){background:var(--cream)}
   <a href="#n0-ou"><span class="n">05</span>Où trouver Claude ?</a>
   <a href="#n0-plans"><span class="n">06</span>Plans & tarifs</a>
   <a href="#n0-interface"><span class="n">07</span>Découverte de l'interface</a>
-
+ 
   <div class="ns">🔵 Niveau 1 — Assistant</div>
   <a href="#n1-styles"><span class="n">08</span>Les Styles d'écriture</a>
   <a href="#n1-artefacts"><span class="n">09</span>Les Artefacts</a>
@@ -190,7 +331,7 @@ tbody tr:nth-child(even){background:var(--cream)}
   <a href="#n1-prompt"><span class="n">11</span>Bien prompter Claude</a>
   <a href="#n1-fichiers"><span class="n">12</span>Fichiers & analyse</a>
   <a href="#n1-recherche"><span class="n">13</span>Recherche web</a>
-
+ 
   <div class="ns">🟣 Niveau 2 — Dans vos outils</div>
   <a href="#n2-chrome"><span class="n">14</span>Claude dans Chrome</a>
   <a href="#n2-excel"><span class="n">15</span>Claude dans Excel</a>
@@ -198,25 +339,25 @@ tbody tr:nth-child(even){background:var(--cream)}
   <a href="#n2-skills"><span class="n">17</span>Les Skills (compétences)</a>
   <a href="#n2-mcp"><span class="n">18</span>Les MCP (connecteurs)</a>
   <a href="#n2-memoire"><span class="n">19</span>Mémoire & personnalisation</a>
-
+ 
   <div class="ns">⚫ Niveau 3 — Avancé</div>
   <a href="#n3-cowork"><span class="n">20</span>Claude Cowork</a>
   <a href="#n3-code-ui"><span class="n">21</span>Claude Code (interface)</a>
   <a href="#n3-code-term"><span class="n">22</span>Claude Code (terminal)</a>
   <a href="#n3-deploy"><span class="n">23</span>Déployer ses créations</a>
-
+ 
   <div class="ns">🎓 Pour finir</div>
   <a href="#exercices"><span class="n">24</span>Exercices corrigés</a>
   <a href="#usecases"><span class="n">25</span>Bibliothèque cas d'usage</a>
 </nav>
-
+ 
 <!-- MAIN -->
 <div class="main">
-
+ 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-c">
-    <span class="badge">📖 Formation Studeria · Tous niveaux</span>
+    <span class="badge">📖 Formation Claude</span>
     <h1>Le Guide Complet <em>Claude</em> — De Débutant à Avancé</h1>
     <p>Maîtrisez Claude en 2026 : de la simple conversation au développement avec Claude Code, en passant par Cowork, les MCP, les Skills et les Artefacts.</p>
     <div class="hero-tags">
@@ -227,15 +368,15 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <div class="content">
-
+ 
 <!-- ===================== NIVEAU 0 ===================== -->
 <div class="lvl-banner lvl0">
   <div class="lb-icon">🟡</div>
   <div class="lb-txt"><h3>Niveau 0 — Découverte</h3><p>Qu'est-ce que Claude, qui est derrière, pourquoi tout le monde en parle, et comment y accéder.</p></div>
 </div>
-
+ 
 <!-- N0-INTRO -->
 <div class="ch" id="n0-intro">
   <div class="ch-head"><span class="ch-num">00</span><h2>Ce que vous allez apprendre</h2></div>
@@ -256,7 +397,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N0-QUOI -->
 <div class="ch" id="n0-quoi">
   <div class="ch-head"><span class="ch-num">01</span><h2>C'est quoi Claude ?</h2></div>
@@ -277,7 +418,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N0-HISTOIRE -->
 <div class="ch" id="n0-histoire">
   <div class="ch-head"><span class="ch-num">02</span><h2>Anthropic — L'entreprise derrière Claude</h2></div>
@@ -285,7 +426,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     <h3>Les fondateurs</h3>
     <p><strong>Anthropic</strong> a été fondée en 2021 par <strong>Dario Amodei</strong> et sa sœur <strong>Daniela Amodei</strong>. Fait intéressant : Dario est passé par <strong>Google</strong> puis <strong>OpenAI</strong> avant de quitter le navire en 2021 pour fonder sa propre entreprise. Il est donc passé par les deux géants avant de créer le sien.</p>
     <p>L'entreprise est basée dans la <strong>Silicon Valley</strong> et se distingue par son approche de la sécurité : elle a créé une <strong>Constitution IA</strong> — un ensemble de principes éthiques sur lesquels sont entraînés les modèles. C'est l'entreprise qui investit le plus sur la sécurité, l'éthique et la protection des données.</p>
-
+ 
     <h3>Chronologie express</h3>
     <div class="tw">
       <table>
@@ -303,7 +444,7 @@ tbody tr:nth-child(even){background:var(--cream)}
         </tbody>
       </table>
     </div>
-
+ 
     <h3>En quelques chiffres (février 2026)</h3>
     <div class="vg">
       <div class="vc"><div class="vt">💰 61 Mds $</div><div class="vd">Valorisation d'Anthropic — doublée en 5 mois</div></div>
@@ -311,14 +452,14 @@ tbody tr:nth-child(even){background:var(--cream)}
       <div class="vc"><div class="vt">🏢 Abonnements ×4</div><div class="vd">Les abonnements business ont quadruplé depuis début 2026</div></div>
       <div class="vc"><div class="vt">🧑‍💻 >50%</div><div class="vd">Plus de la moitié du revenu vient des entreprises (pas le cas chez OpenAI)</div></div>
     </div>
-
+ 
     <div class="tip info">
       <span class="tip-i">📊</span>
       <div class="tip-c"><strong>La SaaS Apocalypse</strong>Depuis la sortie de Claude Code, les actions des éditeurs de logiciels (Salesforce, HubSpot, Adobe, SAP…) ont chuté de plus de 20%. Il est devenu tellement facile de coder son propre CRM ou dashboard que les logiciels traditionnels sont menacés.</div>
     </div>
   </div>
 </div>
-
+ 
 <!-- N0-MODELES -->
 <div class="ch" id="n0-modeles">
   <div class="ch-head"><span class="ch-num">03</span><h2>Les 3 modèles : Haiku, Sonnet, Opus</h2></div>
@@ -344,7 +485,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N0-POURQUOI -->
 <div class="ch" id="n0-pourquoi">
   <div class="ch-head"><span class="ch-num">04</span><h2>Pourquoi Claude explose en 2026</h2></div>
@@ -364,7 +505,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N0-OU -->
 <div class="ch" id="n0-ou">
   <div class="ch-head"><span class="ch-num">05</span><h2>Où trouver Claude ?</h2></div>
@@ -386,7 +527,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N0-PLANS -->
 <div class="ch" id="n0-plans">
   <div class="ch-head"><span class="ch-num">06</span><h2>Plans et tarifs</h2></div>
@@ -418,7 +559,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N0-INTERFACE -->
 <div class="ch" id="n0-interface">
   <div class="ch-head"><span class="ch-num">07</span><h2>Découverte de l'interface</h2></div>
@@ -439,7 +580,7 @@ tbody tr:nth-child(even){background:var(--cream)}
           <text x="16" y="130" fill="rgba(255,255,255,.5)" font-size="10" font-family="DM Sans">📂 Projets</text>
           <text x="16" y="160" fill="rgba(255,255,255,.5)" font-size="10" font-family="DM Sans">📦 Artefacts</text>
           <text x="16" y="290" fill="rgba(255,255,255,.3)" font-size="10" font-family="DM Sans">⚙️ Paramètres</text>
-
+ 
           <!-- Top tabs (app only) -->
           <rect x="180" y="0" width="570" height="36" fill="#292524"/>
           <rect x="200" y="6" width="60" height="24" fill="rgba(217,119,87,.2)" rx="6"/>
@@ -452,7 +593,7 @@ tbody tr:nth-child(even){background:var(--cream)}
           <line x1="420" y1="18" x2="470" y2="18" stroke="#D97757" stroke-width="1.5"/>
           <rect x="475" y="5" width="210" height="26" fill="rgba(217,119,87,.08)" rx="6"/>
           <text x="485" y="22" fill="#D97757" font-size="10" font-family="DM Sans">👈 3 modes (app de bureau uniquement)</text>
-
+ 
           <!-- Chat area -->
           <rect x="180" y="36" width="570" height="284" fill="#1C1917"/>
           <!-- Model selector -->
@@ -462,7 +603,7 @@ tbody tr:nth-child(even){background:var(--cream)}
           <line x1="498" y1="69" x2="530" y2="55" stroke="#10B981" stroke-width="1.5"/>
           <rect x="535" y="42" width="180" height="26" fill="rgba(16,185,129,.08)" rx="6"/>
           <text x="545" y="59" fill="#10B981" font-size="10" font-family="DM Sans">👈 Choix du modèle ici</text>
-
+ 
           <!-- Prompt bar -->
           <rect x="220" y="260" width="490" height="42" fill="rgba(255,255,255,.04)" rx="12" stroke="rgba(255,255,255,.1)"/>
           <text x="240" y="285" fill="rgba(255,255,255,.25)" font-size="12" font-family="DM Sans">Demandez quelque chose à Claude…</text>
@@ -473,7 +614,7 @@ tbody tr:nth-child(even){background:var(--cream)}
           <line x1="400" y1="248" x2="400" y2="230" stroke="#D97757" stroke-width="1.5"/>
           <rect x="310" y="215" width="220" height="18" fill="rgba(217,119,87,.08)" rx="4"/>
           <text x="320" y="228" fill="#D97757" font-size="9" font-family="DM Sans">⬆️ Toutes les options sont ici aussi avec /</text>
-
+ 
           <!-- Incognito -->
           <text x="690" y="54" fill="rgba(255,255,255,.2)" font-size="13">🕶️</text>
           <line x1="690" y1="60" x2="690" y2="75" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="3"/>
@@ -481,7 +622,7 @@ tbody tr:nth-child(even){background:var(--cream)}
         </svg>
       </div>
     </div>
-
+ 
     <h3>Les éléments clés de l'interface</h3>
     <div class="tw">
       <table>
@@ -505,13 +646,13 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- ===================== NIVEAU 1 ===================== -->
 <div class="lvl-banner lvl1">
   <div class="lb-icon">🔵</div>
   <div class="lb-txt"><h3>Niveau 1 — L'Assistant Intelligent</h3><p>Styles, artefacts, projets, prompting, fichiers et recherche web — les outils du quotidien.</p></div>
 </div>
-
+ 
 <!-- N1-STYLES -->
 <div class="ch" id="n1-styles">
   <div class="ch-head"><span class="ch-num">08</span><h2>Les Styles d'écriture</h2></div>
@@ -539,7 +680,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N1-ARTEFACTS -->
 <div class="ch" id="n1-artefacts">
   <div class="ch-head"><span class="ch-num">09</span><h2>Les Artefacts — Créer des documents et mini-apps</h2></div>
@@ -568,7 +709,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N1-PROJETS -->
 <div class="ch" id="n1-projets">
   <div class="ch-head"><span class="ch-num">10</span><h2>Les Projets — Organiser et contextualiser</h2></div>
@@ -595,7 +736,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N1-PROMPT -->
 <div class="ch" id="n1-prompt">
   <div class="ch-head"><span class="ch-num">11</span><h2>Bien prompter Claude</h2></div>
@@ -628,7 +769,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N1-FICHIERS -->
 <div class="ch" id="n1-fichiers">
   <div class="ch-head"><span class="ch-num">12</span><h2>Fichiers & Analyse de documents</h2></div>
@@ -648,7 +789,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N1-RECHERCHE -->
 <div class="ch" id="n1-recherche">
   <div class="ch-head"><span class="ch-num">13</span><h2>Recherche web</h2></div>
@@ -660,13 +801,13 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- ===================== NIVEAU 2 ===================== -->
 <div class="lvl-banner lvl2">
   <div class="lb-icon">🟣</div>
   <div class="lb-txt"><h3>Niveau 2 — Claude dans vos outils</h3><p>Extensions Chrome, Excel, PowerPoint, Skills, MCP et personnalisation avancée.</p></div>
 </div>
-
+ 
 <!-- N2-CHROME -->
 <div class="ch" id="n2-chrome">
   <div class="ch-head"><span class="ch-num">14</span><h2>Claude dans Chrome</h2></div>
@@ -688,7 +829,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </ol>
   </div>
 </div>
-
+ 
 <!-- N2-EXCEL -->
 <div class="ch" id="n2-excel">
   <div class="ch-head"><span class="ch-num">15</span><h2>Claude dans Excel</h2></div>
@@ -704,7 +845,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </ol>
   </div>
 </div>
-
+ 
 <!-- N2-PPT -->
 <div class="ch" id="n2-ppt">
   <div class="ch-head"><span class="ch-num">16</span><h2>Claude dans PowerPoint</h2></div>
@@ -719,7 +860,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </ol>
   </div>
 </div>
-
+ 
 <!-- N2-SKILLS -->
 <div class="ch" id="n2-skills">
   <div class="ch-head"><span class="ch-num">17</span><h2>Les Skills (Compétences)</h2></div>
@@ -739,7 +880,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     <p>Vous pouvez aussi <strong>créer vos propres skills</strong> pour des tâches spécifiques à votre métier (audit IA, rédaction de cas client, séquence de prospection…).</p>
   </div>
 </div>
-
+ 
 <!-- N2-MCP -->
 <div class="ch" id="n2-mcp">
   <div class="ch-head"><span class="ch-num">18</span><h2>Les MCP — Connecter Claude à vos outils</h2></div>
@@ -767,7 +908,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </ol>
   </div>
 </div>
-
+ 
 <!-- N2-MEMOIRE -->
 <div class="ch" id="n2-memoire">
   <div class="ch-head"><span class="ch-num">19</span><h2>Mémoire & Personnalisation</h2></div>
@@ -786,13 +927,13 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- ===================== NIVEAU 3 ===================== -->
 <div class="lvl-banner lvl3">
   <div class="lb-icon">⚫</div>
   <div class="lb-txt"><h3>Niveau 3 — Fonctionnalités Avancées</h3><p>Claude Cowork, Claude Code (interface et terminal), et déploiement. Plus technique, mais ultra-puissant.</p></div>
 </div>
-
+ 
 <!-- N3-COWORK -->
 <div class="ch" id="n3-cowork">
   <div class="ch-head"><span class="ch-num">20</span><h2>Claude Cowork — Claude agit sur votre ordinateur</h2></div>
@@ -824,7 +965,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N3-CODE-UI -->
 <div class="ch" id="n3-code-ui">
   <div class="ch-head"><span class="ch-num">21</span><h2>Claude Code — Version Interface (facile)</h2></div>
@@ -847,7 +988,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </ol>
   </div>
 </div>
-
+ 
 <!-- N3-CODE-TERM -->
 <div class="ch" id="n3-code-term">
   <div class="ch-head"><span class="ch-num">22</span><h2>Claude Code — Terminal (avancé)</h2></div>
@@ -885,7 +1026,7 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- N3-DEPLOY -->
 <div class="ch" id="n3-deploy">
   <div class="ch-head"><span class="ch-num">23</span><h2>Déployer ses créations</h2></div>
@@ -905,17 +1046,17 @@ tbody tr:nth-child(even){background:var(--cream)}
     <p>La méthode est toujours la même : <strong>GitHub</strong> (stockage du code) → <strong>Service de déploiement</strong> (mise en ligne automatique). Référez-vous au guide de déploiement Vercel de ce livret si besoin.</p>
   </div>
 </div>
-
+ 
 <!-- ===================== EXERCICES ===================== -->
 <div class="lvl-banner" style="background:linear-gradient(135deg,var(--cream),var(--sand));color:var(--terracotta);border:1px solid var(--sand)">
   <div class="lb-icon">🎓</div>
   <div class="lb-txt"><h3>Exercices pratiques corrigés</h3><p>Mettez en pratique chaque niveau avec des exercices concrets et leurs corrections.</p></div>
 </div>
-
+ 
 <div class="ch" id="exercices">
   <div class="ch-head"><span class="ch-num">24</span><h2>8 exercices — Du débutant à l'avancé</h2></div>
   <div class="card">
-
+ 
     <!-- EX 1 -->
     <div class="exercise">
       <h4>🟡 Exercice 1 — Créer un style d'écriture (Niveau 1, 10 min)</h4>
@@ -928,7 +1069,7 @@ tbody tr:nth-child(even){background:var(--cream)}
         <p><strong>Vérification :</strong> L'email doit vouvoyer, faire 5-8 lignes, mentionner le montant et le contexte, et avoir un ton direct sans être insistant.</p>
       </div>
     </div>
-
+ 
     <!-- EX 2 -->
     <div class="exercise">
       <h4>🟡 Exercice 2 — Créer un artefact interactif (Niveau 1, 15 min)</h4>
@@ -940,7 +1081,7 @@ tbody tr:nth-child(even){background:var(--cream)}
         <p><strong>Vérification :</strong> L'artefact doit s'afficher à droite du chat, les champs doivent être fonctionnels, les calculs doivent être corrects (ROI = (gains - coût) / coût × 100).</p>
       </div>
     </div>
-
+ 
     <!-- EX 3 -->
     <div class="exercise">
       <h4>🟡 Exercice 3 — Organiser un Projet (Niveau 1, 10 min)</h4>
@@ -951,7 +1092,7 @@ tbody tr:nth-child(even){background:var(--cream)}
         <p><strong>Vérification :</strong> Dans la conversation, demandez « Quel est ton rôle et quel contexte as-tu ? ». Claude doit mentionner qu'il est votre directeur marketing adjoint et faire référence au document uploadé. Si ce n'est pas le cas, vérifiez que les instructions sont bien enregistrées.</p>
       </div>
     </div>
-
+ 
     <!-- EX 4 -->
     <div class="exercise">
       <h4>🔵 Exercice 4 — Utiliser la méthode CRAFT (Niveau 1, 15 min)</h4>
@@ -963,7 +1104,7 @@ tbody tr:nth-child(even){background:var(--cream)}
         <p><strong>Vérification :</strong> Le post CRAFT doit être significativement meilleur que le prompt simple : plus structuré, plus engageant, avec un hook et un CTA clairs.</p>
       </div>
     </div>
-
+ 
     <!-- EX 5 -->
     <div class="exercise">
       <h4>🟣 Exercice 5 — Claude dans Chrome (Niveau 2, 10 min)</h4>
@@ -974,7 +1115,7 @@ tbody tr:nth-child(even){background:var(--cream)}
         <p><strong>Vérification :</strong> Le résumé doit capturer l'essence de l'article en 3 phrases. Les 5 points clés doivent être pertinents et non redondants. Le post LinkedIn doit apporter de la valeur ajoutée et ne pas être un simple copier-coller du résumé.</p>
       </div>
     </div>
-
+ 
     <!-- EX 6 -->
     <div class="exercise">
       <h4>🟣 Exercice 6 — Connecter un MCP (Niveau 2, 15 min)</h4>
@@ -985,7 +1126,7 @@ tbody tr:nth-child(even){background:var(--cream)}
         <p><strong>Vérification :</strong> Claude doit accéder à votre agenda réel, créer un vrai événement (vérifiez dans Google Calendar), et produire un résumé fidèle de vos rendez-vous. Si ça ne fonctionne pas, vérifiez que le connecteur est bien autorisé dans Paramètres → Connecteurs.</p>
       </div>
     </div>
-
+ 
     <!-- EX 7 -->
     <div class="exercise">
       <h4>⚫ Exercice 7 — Claude Cowork (Niveau 3, 15 min)</h4>
@@ -997,7 +1138,7 @@ tbody tr:nth-child(even){background:var(--cream)}
         <p><strong>Vérification :</strong> Le dossier doit être créé, les PDF déplacés et renommés. Surveillez bien l'exécution et intervenez si Cowork fait une erreur.</p>
       </div>
     </div>
-
+ 
     <!-- EX 8 -->
     <div class="exercise">
       <h4>⚫ Exercice 8 — Claude Code (Niveau 3, 30 min)</h4>
@@ -1009,10 +1150,10 @@ tbody tr:nth-child(even){background:var(--cream)}
         <p><strong>Vérification :</strong> La page doit être responsive (tester sur mobile), le formulaire doit avoir les bons champs, le design doit être professionnel. Pour le déploiement : renommez en index.html → GitHub → Vercel.</p>
       </div>
     </div>
-
+ 
   </div>
 </div>
-
+ 
 <!-- ===================== CAS D'USAGE ===================== -->
 <div class="ch" id="usecases">
   <div class="ch-head"><span class="ch-num">25</span><h2>Bibliothèque de cas d'usage</h2></div>
@@ -1039,17 +1180,15 @@ tbody tr:nth-child(even){background:var(--cream)}
     </div>
   </div>
 </div>
-
+ 
 <!-- FOOTER -->
 <div class="footer">
-  <p><strong>🧠 Livret Claude — Guide Complet 2026</strong></p>
-  <p>Formation Studeria · Février 2026</p>
-  <p style="margin-top:8px;font-size:11px">Basé sur la formation vidéo Claude par Guillaume · Tous droits réservés</p>
+  <p><strong>Claude Guide Complet · Tous droits réservés</strong></p>
 </div>
-
+ 
 </div><!-- /content -->
 </div><!-- /main -->
-
+ 
 <script>
 const links=document.querySelectorAll('.sidebar a');
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){links.forEach(l=>l.classList.remove('active'));const l=document.querySelector(`.sidebar a[href="#${x.target.id}"]`);if(l)l.classList.add('active')}})},{threshold:.15});
@@ -1058,3 +1197,5 @@ links.forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=800)docum
 </script>
 </body>
 </html>
+ 
+
